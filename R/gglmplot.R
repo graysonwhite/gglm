@@ -18,20 +18,20 @@ gglmplot <- function(model, type) {
             type %in% types)
 
   if (type == "fitted_resid") {
-    ggplot2::ggplot(model, ggplot2::aes(x = .fitted, y = .resid)) +
+    ggplot2::ggplot(model, ggplot2::aes(x = model$fitted, y = model$resid)) +
       ggplot2::geom_point() +
       ggplot2::geom_hline(yintercept = 0, linetype = "dashed") +
       ggplot2::xlab("Fitted values") +
       ggplot2::ylab("Residuals")
   } else if (type == "resid_hist") {
-    ggplot2::ggplot(model, ggplot2::aes(x = .resid)) +
-      ggplot2::geom_histogram(binwidth = 25) +
+    ggplot2::ggplot(model, ggplot2::aes(x = model$resid)) +
+      ggplot2::geom_histogram(bins = round(1 + 3.332 * log(length(model)))) +
       ggplot2::xlab("Residuals")
   } else if (type == "qq") {
-    ggplot2::ggplot(model, ggplot2::aes(sample = .resid)) +
+    ggplot2::ggplot(model, ggplot2::aes(sample = model$resid)) +
       ggplot2::geom_point(stat = "qq")
   } else if (type == "scale_location") {
-    ggplot2::ggplot(model, ggplot2::aes(x = .fitted, y = sqrt(abs(.stdresid)))) +
+    ggplot2::ggplot(model, ggplot2::aes(x = model$fitted, y = sqrt(abs(model$stdresid)))) +
       ggplot2::geom_point(na.rm = TRUE) +
       ggplot2::stat_smooth(method = "glm") +
       ggplot2::labs(x = "fitted",
