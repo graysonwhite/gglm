@@ -1,0 +1,14 @@
+Package: gglm
+Type: Package
+Title: Easy diagnostic {ggplot}s for generalized linear models
+Version: 0.1.0
+Authors@R: c(
+  person("Grayson", "White", email = "graysonwhite13@gmail.com", role = c("cre","aut")))
+Description: This is an R package that allows for easy creation of `ggplot` diagonostic plots. 
+  This package was inspired by the base R functionality of `plot()` with objects of class `glm` and `lm`.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports:
+  ggplot2
+RoxygenNote: 7.1.0
