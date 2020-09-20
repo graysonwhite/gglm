@@ -13,6 +13,8 @@ devtools::install_github("graysonwhite/gglm")
 
 ## Functions:
 
+Note: not all of these functions have been built yet. `gglm` is still *very* much in a developmental stage.
+
 `gglm()` plots the four default diagnostic plots when supplied a glm. This function works similarly to `plot.lm()`, except that it displays the four diagnostic plots at once.
 
 `stat_qq()` produces a normal Q-Q plot. This function is ported directly from `ggplot2`. 
