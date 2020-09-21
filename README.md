@@ -1,8 +1,8 @@
-# gglm
+# gglm: Grammar of Graphics for (Generalized) Linear Model Diagnostics
 
 ## Overview
 
-`gglm` is a `ggplot2` extension for easy diagonostic ggplots of generalized linear models that adhere to the Grammar of Graphics. 
+`gglm` is a package that creates beautiful `ggplot2` diagonostic plots of generalized linear models that adhere to the Grammar of Graphics and are easy to use. 
 
 ## Installation 
 
