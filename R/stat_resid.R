@@ -10,7 +10,7 @@
 stat_resid <- function() {
   ggplot2::layer(
     geom = "point",
-    mapping = aes(x = .fitted, y = .resid),
+    mapping = ggplot2::aes(x = .fitted, y = .resid),
     stat = "identity",
     position = "identity"
   )

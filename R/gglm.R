@@ -39,7 +39,8 @@ gglm <- function(model) {
     )
 
   scale_location <-
-    ggplot2::ggplot(model, ggplot2::aes(.fitted, sqrt(abs(.stdresid)))) +
+    ggplot2::ggplot(model, ggplot2::aes(x = model$fitted,
+                                        y = sqrt(abs(MASS::stdres(model))))) +
     ggplot2::geom_point(na.rm = TRUE) +
     ggplot2::stat_smooth(method = "loess",
                          se = F,
@@ -48,15 +49,15 @@ gglm <- function(model) {
                   y = expression(sqrt("|Standardized residuals|")),
                   title = "Scale-Location")
 
-  std_res <- rstandard(model)
-  leverage <- hatvalues(model)
+  std_res <- stats::rstandard(model)
+  leverage <- stats::hatvalues(model)
   df <- data.frame(leverage, std_res)
   resid_lev <-
     ggplot2::ggplot(data = df,
                     mapping = ggplot2::aes(x = leverage, y = std_res)) +
     ggplot2::geom_point() +
     ggplot2::geom_smooth(
-      method = loess,
+      method = "loess",
       se = FALSE,
       color = "steelblue",
       size = 1

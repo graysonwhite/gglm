@@ -12,5 +12,6 @@ LazyData: true
 Depends:
 Imports:
   ggplot2,
+  MASS,
   patchwork
 RoxygenNote: 7.1.0
