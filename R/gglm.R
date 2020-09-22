@@ -20,7 +20,7 @@ gglm <- function(model) {
     ggplot2::ggplot(model,
                     mapping = ggplot2::aes(x = model$fitted,
                                            y = model$resid)) +
-    ggplot2::geom_point() +
+    ggplot2::geom_point(alpha = 0.5) +
     ggplot2::geom_hline(yintercept = 0,
                         linetype = "dashed") +
     ggplot2::labs(
@@ -31,7 +31,8 @@ gglm <- function(model) {
 
   qq <-
     ggplot2::ggplot(model, ggplot2::aes(sample = model$resid)) +
-    ggplot2::geom_point(stat = "qq") +
+    ggplot2::geom_point(stat = "qq",
+                        alpha = 0.5) +
     ggplot2::labs(
       title = "Normal Q-Q",
       x = "Theoretical Quantiles",
@@ -41,7 +42,8 @@ gglm <- function(model) {
   scale_location <-
     ggplot2::ggplot(model, ggplot2::aes(x = model$fitted,
                                         y = sqrt(abs(MASS::stdres(model))))) +
-    ggplot2::geom_point(na.rm = TRUE) +
+    ggplot2::geom_point(na.rm = TRUE,
+                        alpha = 0.5) +
     ggplot2::stat_smooth(method = "loess",
                          se = F,
                          color = "steelblue") +
@@ -55,7 +57,7 @@ gglm <- function(model) {
   resid_lev <-
     ggplot2::ggplot(data = df,
                     mapping = ggplot2::aes(x = leverage, y = std_res)) +
-    ggplot2::geom_point() +
+    ggplot2::geom_point(alpha = 0.5) +
     ggplot2::geom_smooth(
       method = "loess",
       se = FALSE,
