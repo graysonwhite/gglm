@@ -17,7 +17,7 @@ Note: not all of these functions have been built yet. `gglm` is still *very* muc
 
 `gglm()` plots the four default diagnostic plots when supplied a glm. This function works similarly to `plot.lm()`, except that it displays the four diagnostic plots at once.
 
-`stat_qq()` produces a normal Q-Q plot. This function is ported directly from `ggplot2`. 
+`stat_normal_qq()` produces a normal Q-Q plot. This function is very similar to `stat_qq()` from `ggplot2`. 
 
 `stat_fitted_resid()` produces a fitted vs. residual plot. 
 
