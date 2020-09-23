@@ -19,9 +19,9 @@ Note: not all of these functions have been built yet. `gglm` is still *very* muc
 
 `stat_qq()` produces a normal Q-Q plot. This function is ported directly from `ggplot2`. 
 
-`stat_resid()` produces a fitted vs. residual plot. 
+`stat_fitted_resid()` produces a fitted vs. residual plot. 
 
-`stat_normal_resid()` produces a histogram of the distribution of the residuals. Alternatively you can specify `geom = density` for a density plot.
+`stat_resid_hist()` produces a histogram of the distribution of the residuals. 
 
 `stat_scale_location()`
 
