@@ -26,13 +26,30 @@ particular model diagnostic plots.
 
 ``` r
 library(gglm)
-data(mtcars)
-m1 <- lm(mpg ~ ., data = mtcars)
+library(ggplot2)
+data(mtcars) # Load example data
+m1 <- lm(mpg ~ ., data = mtcars) # Create your model
 
 gglm(m1)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+### Example 2: Using the Grammar of Graphics
+
+``` r
+library(gglm) 
+library(broom) 
+library(ggplot2)
+data(mtcars) # Load example data
+model <- lm(mpg ~ ., data = mtcars) # Create your model
+model_tbl <- broom::augment(m1) # Turn model output into a tidy tibble
+
+ggplot(data = model_tbl) +
+  stat_scale_location()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## Function List
 
