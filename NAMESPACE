@@ -3,3 +3,4 @@
 export(gglm)
 export(gglmplot)
 export(stat_resid)
+export(stat_scale_location)
