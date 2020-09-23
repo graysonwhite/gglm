@@ -11,22 +11,19 @@
 
 stat_scale_location <- function() {
   list(
-  ggplot2::layer(
-    geom = "point",
-    params = list(na.rm = TRUE, alpha = 0.5),
-    mapping = ggplot2::aes(x = .data$.fitted,
-                           y = sqrt(abs(.data$.std.resid))),
-    stat = "identity",
-    position = "identity"
-  ),
-    ggplot2::layer(
-      stat = "smooth",
-      mapping = ggplot2::aes(x = .data$.fitted,
-                             y = sqrt(abs(.data$.std.resid))),
-      params = list(method = "loess", se = FALSE, color = "steelblue"),
-      position = "identity",
-      geom = "line"
-    )
+    ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
+                                               y = sqrt(abs(.data$.std.resid))),
+                        na.rm = TRUE,
+                        alpha = 0.5),
+    ggplot2::stat_smooth(mapping = ggplot2::aes(x = .data$.fitted,
+                                                y = sqrt(abs(.data$.std.resid))),
+                         method = "loess",
+                         se = FALSE,
+                         color = "steelblue",
+                         formula = "y ~ x"),
+    ggplot2::labs(x = "Fitted values",
+                  y = expression(sqrt("|Standardized residuals|")),
+                  title = "Scale-Location"),
+    ggplot2::theme_bw()
   )
-
 }
