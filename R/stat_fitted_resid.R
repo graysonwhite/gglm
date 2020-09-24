@@ -1,19 +1,22 @@
 #' @title stat_fitted_resid
 #'
-#' @description Provides four standard visual model diagnostic plots with `ggplot2`.
+#' @description `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #'
-#' @param model An object of type `lm` or `glm`
+#' @param alpha Default: 0.5. Adjust transparency of points.
 #'
-#' @return A a `ggplot2` object for visual diagnostic of model validity.
+#' @return A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #' @examples
-#'
+#' data(mtcars)
+#' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+#' model_tbl <- broom::augment(model)
+#' ggplot2::ggplot(data = model_tbl) + stat_fitted_resid()
 #' @export
 
-stat_fitted_resid <- function() {
+stat_fitted_resid <- function(alpha = 0.5) {
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
                                                y = .data$.resid),
-                        alpha = 0.5),
+                        alpha = alpha),
     ggplot2::geom_hline(yintercept = 0,
                         linetype = "dashed"),
     ggplot2::labs(

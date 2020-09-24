@@ -4,17 +4,20 @@
 \alias{stat_fitted_resid}
 \title{stat_fitted_resid}
 \usage{
-stat_fitted_resid()
+stat_fitted_resid(alpha = 0.5)
 }
 \arguments{
-\item{model}{An object of type `lm` or `glm`}
+\item{alpha}{Default: 0.5. Adjust transparency of points.}
 }
 \value{
-A a `ggplot2` object for visual diagnostic of model validity.
+A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 }
 \description{
-Provides four standard visual model diagnostic plots with `ggplot2`.
+`ggplot2` layer for plotting a fitted vs. residual scatter plot.
 }
 \examples{
-
+data(mtcars)
+model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+model_tbl <- broom::augment(model)
+ggplot2::ggplot(data = model_tbl) + stat_fitted_resid()
 }
