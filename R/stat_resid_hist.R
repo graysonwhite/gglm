@@ -2,9 +2,14 @@
 #'
 #' @description Visualize the distribution of the residuals of a model.
 #'
+#' @param bins Default: 30. Adjust the number of bins.
 #'
-#' @return A a `ggplot2` object for visual diagnostic of model validity.
+#' @return A `ggplot2` layer for plotting a histogram of residuals.
 #' @examples
+#' data(mtcars)
+#' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+#' model_tbl <- broom::augment(model)
+#' ggplot2::ggplot(data = model_tbl) + stat_resid_hist()
 #' @export
 
 stat_resid_hist <- function(bins = 30) {

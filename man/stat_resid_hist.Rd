@@ -6,9 +6,18 @@
 \usage{
 stat_resid_hist(bins = 30)
 }
+\arguments{
+\item{bins}{Default: 30. Adjust the number of bins.}
+}
 \value{
-A a `ggplot2` object for visual diagnostic of model validity.
+A `ggplot2` layer for plotting a histogram of residuals.
 }
 \description{
 Visualize the distribution of the residuals of a model.
+}
+\examples{
+data(mtcars)
+model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+model_tbl <- broom::augment(model)
+ggplot2::ggplot(data = model_tbl) + stat_resid_hist()
 }
