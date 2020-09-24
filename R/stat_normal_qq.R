@@ -2,16 +2,21 @@
 #'
 #' @description Normal QQ plot.
 #'
+#' @param alpha Default: 0.5. Adjust transparency of points.
 #'
-#' @return A a `ggplot2` object for visual diagnostic of model validity.
+#' @return A `ggplot2` layer for plotting a Normal Q-Q plot.
 #' @examples
+#' data(mtcars)
+#' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+#' model_tbl <- broom::augment(model)
+#' ggplot2::ggplot(data = model_tbl) + stat_normal_qq()
 #' @export
 
-stat_normal_qq <- function() {
+stat_normal_qq <- function(alpha = 0.5) {
   list(
       ggplot2::geom_point(mapping = ggplot2::aes(sample = .data$.std.resid),
                           stat = "qq",
-                          alpha = 0.5),
+                          alpha = alpha),
       ggplot2::labs(
         title = "Normal Q-Q",
         x = "Theoretical Quantiles",

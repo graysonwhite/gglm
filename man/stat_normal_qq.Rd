@@ -4,11 +4,20 @@
 \alias{stat_normal_qq}
 \title{stat_normal_qq}
 \usage{
-stat_normal_qq()
+stat_normal_qq(alpha = 0.5)
+}
+\arguments{
+\item{alpha}{Default: 0.5. Adjust transparency of points.}
 }
 \value{
-A a `ggplot2` object for visual diagnostic of model validity.
+A `ggplot2` layer for plotting a Normal Q-Q plot.
 }
 \description{
 Normal QQ plot.
+}
+\examples{
+data(mtcars)
+model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+model_tbl <- broom::augment(model)
+ggplot2::ggplot(data = model_tbl) + stat_normal_qq()
 }
