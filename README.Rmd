@@ -46,18 +46,16 @@ ggplot(data = model_tbl) +
 
 Note that in this case, we need to `augment()` our model object into a tibble in order to supply it as the `data` argument in our `ggplot()` call. This is different from the `gglm()` function which takes in an object of type `lm` or `glm` in order to quickly show you your four main diagnostic plots.
 
-## Function List
+## Functions
 
-`gglm()` plots the four default diagnostic plots when supplied a glm. This function works similarly to `plot.lm()`, except that it displays the four diagnostic plots at once.
+### For quick and easy plotting
 
-`stat_normal_qq()` produces a normal Q-Q plot. This function is very similar to `stat_qq()` from `ggplot2`. 
+`gglm()` plots the four default diagnostic plots when supplied an `lm` or `glm` object. This function works similarly to `plot.lm()`, except that it displays the four diagnostic plots at once.
 
-`stat_fitted_resid()` produces a fitted vs. residual plot. 
+### Following the Grammar of Graphics
 
-`stat_resid_hist()` produces a histogram of the distribution of the residuals. 
+`stat_normal_qq()`, `stat_fitted_resid()`, `stat_resid_hist()`, `stat_scale_location()`, and `stat_resid_leverage()` all are `ggplot2` layers used to create individual diagnostic plots. To use these, follow Example 2. 
 
-`stat_scale_location()`
+### Coming soon
 
-`stat_cook()` vs. row labels and vs. leverage/(1-leverage). (Not yet built)
-
-`stat_resid_leverage()` (Not yet built)
+`stat_cook()` vs. row labels and vs. leverage/(1-leverage). 
