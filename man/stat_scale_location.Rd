@@ -4,17 +4,34 @@
 \alias{stat_scale_location}
 \title{stat_scale_location}
 \usage{
-stat_scale_location()
+stat_scale_location(
+  alpha = 0.5,
+  na.rm = TRUE,
+  se = FALSE,
+  method = "loess",
+  color = "steelblue"
+)
 }
 \arguments{
-\item{model}{An object of type `lm` or `glm`}
+\item{alpha}{Adjust the transparency of points.}
+
+\item{na.rm}{Remove points with value NA?}
+
+\item{se}{Keep standard error bands around line?}
+
+\item{method}{Method for fitting the line to the points.}
+
+\item{color}{Color of the line.}
 }
 \value{
-A a `ggplot2` object for visual diagnostic of model validity.
+A `ggplot2` layer for plotting the scale location diagnostic plot.
 }
 \description{
-Provides four standard visual model diagnostic plots with `ggplot2`.
+Scale location diagnostic plot.
 }
 \examples{
-
+data(mtcars)
+model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+model_tbl <- broom::augment(model)
+ggplot2::ggplot(data = model_tbl) + stat_scale_location()
 }

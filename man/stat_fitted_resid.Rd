@@ -7,7 +7,7 @@
 stat_fitted_resid(alpha = 0.5)
 }
 \arguments{
-\item{alpha}{Default: 0.5. Adjust transparency of points.}
+\item{alpha}{Adjust transparency of points.}
 }
 \value{
 A `ggplot2` layer for plotting a fitted vs. residual scatter plot.

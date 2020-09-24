@@ -1,25 +1,32 @@
 #' @title stat_scale_location
 #'
-#' @description Provides four standard visual model diagnostic plots with `ggplot2`.
+#' @description Scale location diagnostic plot.
 #'
-#' @param model An object of type `lm` or `glm`
+#' @param alpha Adjust the transparency of points.
+#' @param na.rm Remove points with value NA?
+#' @param se Keep standard error bands around line?
+#' @param method Method for fitting the line to the points.
+#' @param color Color of the line.
 #'
-#' @return A a `ggplot2` object for visual diagnostic of model validity.
+#' @return A `ggplot2` layer for plotting the scale location diagnostic plot.
 #' @examples
-#'
+#' data(mtcars)
+#' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
+#' model_tbl <- broom::augment(model)
+#' ggplot2::ggplot(data = model_tbl) + stat_scale_location()
 #' @export
 
-stat_scale_location <- function() {
+stat_scale_location <- function(alpha = 0.5, na.rm = TRUE, se = FALSE, method = "loess", color = "steelblue") {
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
                                                y = sqrt(abs(.data$.std.resid))),
-                        na.rm = TRUE,
-                        alpha = 0.5),
+                        na.rm = na.rm,
+                        alpha = alpha),
     ggplot2::stat_smooth(mapping = ggplot2::aes(x = .data$.fitted,
                                                 y = sqrt(abs(.data$.std.resid))),
-                         method = "loess",
-                         se = FALSE,
-                         color = "steelblue",
+                         method = method,
+                         se = se,
+                         color = color,
                          formula = "y ~ x"),
     ggplot2::labs(x = "Fitted values",
                   y = expression(sqrt("|Standardized residuals|")),

@@ -2,7 +2,7 @@
 #'
 #' @description Visualize the distribution of the residuals of a model.
 #'
-#' @param bins Default: 30. Adjust the number of bins.
+#' @param bins Adjust the number of bins.
 #'
 #' @return A `ggplot2` layer for plotting a histogram of residuals.
 #' @examples

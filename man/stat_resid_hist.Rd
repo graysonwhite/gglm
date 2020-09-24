@@ -7,7 +7,7 @@
 stat_resid_hist(bins = 30)
 }
 \arguments{
-\item{bins}{Default: 30. Adjust the number of bins.}
+\item{bins}{Adjust the number of bins.}
 }
 \value{
 A `ggplot2` layer for plotting a histogram of residuals.

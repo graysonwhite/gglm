@@ -2,7 +2,7 @@
 #'
 #' @description `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #'
-#' @param alpha Default: 0.5. Adjust transparency of points.
+#' @param alpha Adjust transparency of points.
 #'
 #' @return A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #' @examples

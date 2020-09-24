@@ -2,7 +2,7 @@
 #'
 #' @description Normal QQ plot.
 #'
-#' @param alpha Default: 0.5. Adjust transparency of points.
+#' @param alpha Adjust transparency of points.
 #'
 #' @return A `ggplot2` layer for plotting a Normal Q-Q plot.
 #' @examples
