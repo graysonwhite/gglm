@@ -54,12 +54,9 @@ gglm <- function(model) {
                   y = expression(sqrt("|Standardized residuals|")),
                   title = "Scale-Location")
 
-  std_res <- stats::rstandard(model)
-  leverage <- stats::hatvalues(model)
-  df <- data.frame(leverage, std_res)
   resid_lev <-
-    ggplot2::ggplot(data = df,
-                    mapping = ggplot2::aes(x = leverage, y = std_res)) +
+    ggplot2::ggplot(data = model_df,
+                    mapping = ggplot2::aes(x = model_df$.hat, y = model_df$.std.resid)) +
     ggplot2::geom_point(alpha = 0.5) +
     ggplot2::geom_smooth(
       method = "loess",
