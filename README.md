@@ -54,8 +54,8 @@ ggplot(data = model_tbl) +
 Note that in this case, we need to `augment()` our model object into a
 tibble in order to supply it as the `data` argument in our `ggplot()`
 call. This is different from the `gglm()` function which takes in an
-object of type `lm` or `glm` in order to quickly show you your four main
-diagnostic plots.
+object of type `lm` or `glm`, *or* an `augment()`ed tibble in order to
+quickly show you your four main diagnostic plots.
 
 ## Functions
 

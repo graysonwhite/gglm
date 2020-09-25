@@ -2,7 +2,7 @@
 #'
 #' @description Provides four standard visual model diagnostic plots with `ggplot2`.
 #'
-#' @param model An object of type `lm` or `glm`
+#' @param model An object of type `lm` or `glm`, or a `broom::augment()`ed tibble from a model object of type `lm` or `glm`.
 #'
 #' @return A a `ggplot2` object for visual diagnostic of model validity.
 #' @examples
@@ -12,11 +12,15 @@
 #' @export
 
 gglm <- function(model) {
-  stopifnot(class(model) %in% c("lm", "glm"))
+  stopifnot(class(model) %in% c("lm", "glm", "tbl", "tbl_df", "data.frame"))
   ggplot2::theme_set(ggplot2::theme_bw())
   options(warn = -1)
 
-  model_df <- broom::augment(model)
+  if(class(model) %in% c("lm", "glm")) {
+    model_df <- broom::augment(model)
+  } else {
+    model_df <- model
+  }
 
   fitted_resid <-
     ggplot2::ggplot(model_df,

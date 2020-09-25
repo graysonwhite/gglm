@@ -7,7 +7,7 @@
 gglm(model)
 }
 \arguments{
-\item{model}{An object of type `lm` or `glm`}
+\item{model}{An object of type `lm` or `glm`, or a `broom::augment()`ed tibble from a model object of type `lm` or `glm`.}
 }
 \value{
 A a `ggplot2` object for visual diagnostic of model validity.
