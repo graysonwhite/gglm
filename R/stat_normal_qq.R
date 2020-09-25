@@ -11,6 +11,7 @@
 #' model_tbl <- broom::augment(model)
 #' ggplot2::ggplot(data = model_tbl) + stat_normal_qq()
 #' @export
+#' @importFrom rlang .data
 
 stat_normal_qq <- function(alpha = 0.5) {
   list(

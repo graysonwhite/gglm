@@ -14,6 +14,7 @@
 #' model_tbl <- broom::augment(model)
 #' ggplot2::ggplot(data = model_tbl) + stat_resid_leverage()
 #' @export
+#' @importFrom rlang .data
 
 stat_resid_leverage <-
   function(alpha = 0.5,

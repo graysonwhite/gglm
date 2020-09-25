@@ -11,6 +11,7 @@
 #' model_tbl <- broom::augment(model)
 #' ggplot2::ggplot(data = model_tbl) + stat_fitted_resid()
 #' @export
+#' @importFrom rlang .data
 
 stat_fitted_resid <- function(alpha = 0.5) {
   list(

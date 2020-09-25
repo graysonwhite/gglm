@@ -14,5 +14,6 @@ Imports:
   broom,
   ggplot2,
   MASS,
-  patchwork
+  patchwork,
+  rlang
 RoxygenNote: 7.1.0

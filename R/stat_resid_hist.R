@@ -11,6 +11,7 @@
 #' model_tbl <- broom::augment(model)
 #' ggplot2::ggplot(data = model_tbl) + stat_resid_hist()
 #' @export
+#' @importFrom rlang .data
 
 stat_resid_hist <- function(bins = 30) {
   list(

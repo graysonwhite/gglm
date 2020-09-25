@@ -15,6 +15,7 @@
 #' model_tbl <- broom::augment(model)
 #' ggplot2::ggplot(data = model_tbl) + stat_scale_location()
 #' @export
+#' @importFrom rlang .data
 
 stat_scale_location <- function(alpha = 0.5, na.rm = TRUE, se = FALSE, method = "loess", color = "steelblue") {
   list(
