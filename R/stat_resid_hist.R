@@ -14,6 +14,12 @@
 #' @importFrom rlang .data
 
 stat_resid_hist <- function(bins = 30) {
+  if(class(.data) %in% c("lm", "glm")) {
+    .data <- broom::augment(.data)
+  } else {
+    .data <- .data
+  }
+  
   list(
   ggplot2::geom_histogram(mapping = ggplot2::aes(x = .data$.resid),
                           bins = bins),

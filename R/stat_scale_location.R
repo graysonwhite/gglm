@@ -17,7 +17,17 @@
 #' @export
 #' @importFrom rlang .data
 
-stat_scale_location <- function(alpha = 0.5, na.rm = TRUE, se = FALSE, method = "loess", color = "steelblue") {
+stat_scale_location <- function(alpha = 0.5,
+                                na.rm = TRUE,
+                                se = FALSE,
+                                method = "loess",
+                                color = "steelblue") {
+  if(class(.data) %in% c("lm", "glm")) {
+    .data <- broom::augment(.data)
+  } else {
+    .data <- .data
+  }
+  
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
                                                y = sqrt(abs(.data$.std.resid))),
