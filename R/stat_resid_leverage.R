@@ -21,12 +21,6 @@ stat_resid_leverage <-
            method = "loess",
            se = FALSE,
            color = "steelblue") {
-    if(class(.data) %in% c("lm", "glm")) {
-      .data <- broom::augment(.data)
-    } else {
-      .data <- .data
-    }
-    
     list(
       ggplot2::geom_point(
         mapping = ggplot2::aes(x = .data$.hat,
