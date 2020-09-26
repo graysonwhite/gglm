@@ -39,7 +39,6 @@ stat_resid_leverage <-
       ),
       ggplot2::labs(title = "Residual vs. Leverage",
                     y = "Standardized Residuals",
-                    x = "Leverage"),
-      ggplot2::theme_bw()
+                    x = "Leverage")
     )
   }

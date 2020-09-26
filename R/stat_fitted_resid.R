@@ -24,7 +24,6 @@ stat_fitted_resid <- function(alpha = 0.5) {
       title = "Residuals vs Fitted",
       x = "Fitted values",
       y = "Residuals"
-    ),
-    ggplot2::theme_bw()
+    )
     )
 }

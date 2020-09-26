@@ -35,7 +35,6 @@ stat_scale_location <- function(alpha = 0.5,
                          formula = "y ~ x"),
     ggplot2::labs(x = "Fitted values",
                   y = expression(sqrt("|Standardized residuals|")),
-                  title = "Scale-Location"),
-    ggplot2::theme_bw()
+                  title = "Scale-Location")
   )
 }

@@ -4,10 +4,12 @@
 \alias{gglm}
 \title{gglm}
 \usage{
-gglm(model)
+gglm(model, theme = ggplot2::theme_gray())
 }
 \arguments{
 \item{model}{An object of type `lm` or `glm`, or a `broom::augment()`ed tibble from a model object of type `lm` or `glm`.}
+
+\item{theme}{The theme of the `ggplot`s to be produced.}
 }
 \value{
 A a `ggplot2` object for visual diagnostic of model validity.

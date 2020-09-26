@@ -38,7 +38,6 @@ stat_cooks_leverage <- function(alpha = 0.5,
       title = "Cook's Distance vs. Leverage",
       x = "Leverage",
       y = "Cook's distance"
-    ),
-    ggplot2::theme_bw()
+    )
   )
 }

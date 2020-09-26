@@ -22,7 +22,6 @@ stat_normal_qq <- function(alpha = 0.5) {
         title = "Normal Q-Q",
         x = "Theoretical Quantiles",
         y = "Standardized Residuals"
-      ),
-      ggplot2::theme_bw()
+      )
   )
 }

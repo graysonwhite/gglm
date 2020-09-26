@@ -20,8 +20,7 @@ stat_resid_hist <- function(bins = 30) {
   ggplot2::labs(
     x = "Residuals",
     title = "Residual Histogram"
-  ),
-  ggplot2::theme_bw()
+  )
   )
 }
 

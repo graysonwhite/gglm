@@ -3,6 +3,7 @@
 #' @description Provides four standard visual model diagnostic plots with `ggplot2`.
 #'
 #' @param model An object of type `lm` or `glm`, or a `broom::augment()`ed tibble from a model object of type `lm` or `glm`.
+#' @param theme The theme of the `ggplot`s to be produced.
 #'
 #' @return A a `ggplot2` object for visual diagnostic of model validity.
 #' @examples
@@ -11,9 +12,9 @@
 #' gglm(m1)
 #' @export
 
-gglm <- function(model) {
+gglm <- function(model, theme = ggplot2::theme_gray()) {
   stopifnot(class(model) %in% c("lm", "glm", "tbl", "tbl_df", "data.frame"))
-  ggplot2::theme_set(ggplot2::theme_bw())
+  ggplot2::theme_set(theme)
   options(warn = -1)
 
   if(class(model) %in% c("lm", "glm")) {
