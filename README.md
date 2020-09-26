@@ -38,22 +38,14 @@ gglm(m1)
 
 ``` r
 library(gglm) 
-library(broom) 
 library(ggplot2)
 data(mtcars) # Load example data
 model <- lm(mpg ~ ., data = mtcars) # Create your model
-model_tbl <- broom::augment(m1) # Turn model output into a tidy tibble
-ggplot(data = model_tbl) +
+ggplot(data = model) +
   stat_fitted_resid()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
-
-Note that in this case, we need to `augment()` our model object into a
-tibble in order to supply it as the `data` argument in our `ggplot()`
-call. This is different from the `gglm()` function which takes in an
-object of type `lm` or `glm`, *or* an `augment()`ed tibble in order to
-quickly show you your four main diagnostic plots.
 
 ## Functions
 
