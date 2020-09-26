@@ -24,11 +24,11 @@ stat_scale_location <- function(alpha = 0.5,
                                 color = "steelblue") {
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
-                                               y = sqrt(abs(.data$.std.resid))),
+                                               y = sqrt(abs(.data$.resid / stats::sd(.data$.resid)))),
                         na.rm = na.rm,
                         alpha = alpha),
     ggplot2::stat_smooth(mapping = ggplot2::aes(x = .data$.fitted,
-                                                y = sqrt(abs(.data$.std.resid))),
+                                                y = sqrt(abs(.data$.resid / stats::sd(.data$.resid)))),
                          method = method,
                          se = se,
                          color = color,

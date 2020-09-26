@@ -15,7 +15,7 @@
 
 stat_normal_qq <- function(alpha = 0.5) {
   list(
-      ggplot2::geom_point(mapping = ggplot2::aes(sample = .data$.std.resid),
+      ggplot2::geom_point(mapping = ggplot2::aes(sample = .data$.resid / stats::sd(.data$.resid)),
                           stat = "qq",
                           alpha = alpha),
       ggplot2::labs(
