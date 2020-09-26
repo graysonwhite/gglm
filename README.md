@@ -25,11 +25,11 @@ particular model diagnostic plots.
 ### Example 1: Quickly creating the four diagnostic plots
 
 ``` r
-library(gglm)
-library(ggplot2)
+library(gglm) # Load the package
 data(mtcars) # Load example data
-m1 <- lm(mpg ~ ., data = mtcars) # Create your model
-gglm(m1)
+model <- lm(mpg ~ ., data = mtcars) # Create your model
+
+gglm(model) # Plot the four main diagnostic plots
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
@@ -37,15 +37,22 @@ gglm(m1)
 ### Example 2: Using the Grammar of Graphics
 
 ``` r
-library(gglm) 
-library(ggplot2)
-data(mtcars) # Load example data
-model <- lm(mpg ~ ., data = mtcars) # Create your model
+library(ggplot2) # Need to load ggplot2
+
 ggplot(data = model) +
   stat_fitted_resid()
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+``` r
+# We can also add layers such as themes to these `ggplot`s and adjust features of the plot:
+ggplot(data = model) +
+  stat_cooks_leverage(alpha = 1) +
+  theme_minimal()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
 
 ## Functions
 
