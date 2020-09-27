@@ -2,7 +2,7 @@
 #'
 #' @description Provides four standard visual model diagnostic plots with `ggplot2`.
 #'
-#' @param model An object of type `lm` or `glm`.
+#' @param data A model object of type `lm` or `glm`.
 #' @param theme The theme of the `ggplot`s to be produced.
 #'
 #' @return A a `ggplot2` object for visual diagnostic of model validity.
@@ -12,25 +12,25 @@
 #' gglm(m1)
 #' @export
 
-gglm <- function(model, theme = ggplot2::theme_gray()) {
-  stopifnot(class(model) %in% c("lm", "glm"))
+gglm <- function(data, theme = ggplot2::theme_gray()) {
+  stopifnot(class(data) %in% c("lm", "glm"))
   ggplot2::theme_set(theme)
   options(warn = -1)
   
   fitted_resid <-
-    ggplot2::ggplot(model) +
+    ggplot2::ggplot(data) +
     stat_fitted_resid()
   
   qq <-
-    ggplot2::ggplot(model) +
+    ggplot2::ggplot(data) +
     stat_normal_qq()
   
   scale_location <-
-    ggplot2::ggplot(model) +
+    ggplot2::ggplot(data) +
     stat_scale_location()
   
   resid_lev <-
-    ggplot2::ggplot(model) +
+    ggplot2::ggplot(data) +
     stat_resid_leverage()
   
   patchwork::wrap_plots((fitted_resid + qq) / (scale_location + resid_lev))

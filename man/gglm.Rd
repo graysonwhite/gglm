@@ -4,10 +4,10 @@
 \alias{gglm}
 \title{gglm}
 \usage{
-gglm(model, theme = ggplot2::theme_gray())
+gglm(data, theme = ggplot2::theme_gray())
 }
 \arguments{
-\item{model}{An object of type `lm` or `glm`.}
+\item{data}{A model object of type `lm` or `glm`.}
 
 \item{theme}{The theme of the `ggplot`s to be produced.}
 }

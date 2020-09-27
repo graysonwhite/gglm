@@ -3,3 +3,4 @@
 ^README\.Rmd$
 ^README\_files$
 ^README-.*\.png$
+^figs$
