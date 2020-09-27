@@ -1,5 +1,5 @@
 
-# gglm
+# gglm <img src="https://github.com/graysonwhite/gglm/blob/master/gglm.gif?raw=true" align="right" width=125 />
 
 ## Overview
 
