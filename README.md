@@ -69,10 +69,6 @@ displays the four diagnostic plots at once.
 ### Following the Grammar of Graphics
 
 `stat_normal_qq()`, `stat_fitted_resid()`, `stat_resid_hist()`,
-`stat_scale_location()`, `stat_cooks_leverage()`, and
-`stat_resid_leverage()` all are `ggplot2` layers used to create
+`stat_scale_location()`, `stat_cooks_leverage()`, `stat_cooks_obs()`,
+and `stat_resid_leverage()` all are `ggplot2` layers used to create
 individual diagnostic plots. To use these, follow Example 2.
-
-### Coming soon
-
-`stat_cook()` vs. observation number
