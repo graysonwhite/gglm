@@ -4,14 +4,15 @@ Title: Grammar of Graphics for Linear Model Diagnostic Plots
 Version: 1.0.0
 Authors@R: c(
   person("Grayson", "White", email = "graysonwhite13@gmail.com", role = c("cre","aut")))
-Description: Allows for easy creation of diagonostic plots for linear models using the Grammar of Graphics.  
+Description: Allows for easy creation of diagnostic plots for linear models using the Grammar of Graphics.  
   Provides functionality for both individual diagnostic plots and an array of four standard diagnostic plots.
 License: CC0
 Encoding: UTF-8
 LazyData: true
-Depends:
 Imports:
   ggplot2,
   patchwork,
   rlang
+URL: https://github.com/graysonwhite/gglm
+BugReports: https://github.com/graysonwhite/gglm/issues
 RoxygenNote: 7.1.0
