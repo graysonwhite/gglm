@@ -8,8 +8,7 @@
 #' @examples
 #' data(mtcars)
 #' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
-#' model_tbl <- broom::augment(model)
-#' ggplot2::ggplot(data = model_tbl) + stat_fitted_resid()
+#' ggplot2::ggplot(data = model) + stat_fitted_resid()
 #' @export
 #' @importFrom rlang .data
 

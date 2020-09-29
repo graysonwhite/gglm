@@ -18,6 +18,5 @@ Normal QQ plot.
 \examples{
 data(mtcars)
 model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
-model_tbl <- broom::augment(model)
-ggplot2::ggplot(data = model_tbl) + stat_normal_qq()
+ggplot2::ggplot(data = model) + stat_normal_qq()
 }

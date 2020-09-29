@@ -2,6 +2,7 @@
 
 export(gglm)
 export(stat_cooks_leverage)
+export(stat_cooks_obs)
 export(stat_fitted_resid)
 export(stat_normal_qq)
 export(stat_resid_hist)

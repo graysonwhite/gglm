@@ -11,8 +11,7 @@
 #' @examples
 #' data(mtcars)
 #' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
-#' model_tbl <- broom::augment(model)
-#' ggplot2::ggplot(data = model_tbl) + stat_cooks_leverage()
+#' ggplot2::ggplot(data = model) + stat_cooks_leverage()
 #' @export
 #' @importFrom rlang .data
 

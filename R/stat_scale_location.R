@@ -12,8 +12,7 @@
 #' @examples
 #' data(mtcars)
 #' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
-#' model_tbl <- broom::augment(model)
-#' ggplot2::ggplot(data = model_tbl) + stat_scale_location()
+#' ggplot2::ggplot(data = model) + stat_scale_location()
 #' @export
 #' @importFrom rlang .data
 

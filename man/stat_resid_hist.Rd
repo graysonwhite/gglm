@@ -18,6 +18,5 @@ Visualize the distribution of the residuals of a model.
 \examples{
 data(mtcars)
 model <- lm(mpg ~ cyl + disp + hp, data = mtcars)
-model_tbl <- broom::augment(model)
-ggplot2::ggplot(data = model_tbl) + stat_resid_hist()
+ggplot2::ggplot(data = model) + stat_resid_hist()
 }
