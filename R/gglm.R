@@ -15,8 +15,7 @@
 gglm <- function(data, theme = ggplot2::theme_gray()) {
   stopifnot(class(data) %in% c("lm", "glm"))
   ggplot2::theme_set(theme)
-  options(warn = -1)
-  
+
   fitted_resid <-
     ggplot2::ggplot(data) +
     stat_fitted_resid()
