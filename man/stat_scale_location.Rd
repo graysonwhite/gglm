@@ -9,7 +9,8 @@ stat_scale_location(
   na.rm = TRUE,
   se = FALSE,
   method = "loess",
-  color = "steelblue"
+  color = "steelblue",
+  ...
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ stat_scale_location(
 \item{method}{Method for fitting the line to the points.}
 
 \item{color}{Color of the line.}
+
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting the scale location diagnostic plot.

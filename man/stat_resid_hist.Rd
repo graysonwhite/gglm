@@ -4,10 +4,12 @@
 \alias{stat_resid_hist}
 \title{stat_resid_hist}
 \usage{
-stat_resid_hist(bins = 30)
+stat_resid_hist(bins = 30, ...)
 }
 \arguments{
 \item{bins}{Adjust the number of bins.}
+
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting a histogram of residuals.

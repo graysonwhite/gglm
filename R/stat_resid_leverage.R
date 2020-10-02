@@ -6,6 +6,7 @@
 #' @param method Method for fitting the line to the points.
 #' @param se Keep standard error bands around line?
 #' @param color Color of the line.
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #' @examples
@@ -20,7 +21,8 @@ stat_resid_leverage <-
            alpha = 0.5,
            method = "loess",
            se = FALSE,
-           color = "steelblue") {
+           color = "steelblue",
+           ...) {
     list(
       ggplot2::geom_point(
         mapping = ggplot2::aes(x = .data$.hat,

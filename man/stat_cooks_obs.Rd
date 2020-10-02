@@ -4,7 +4,10 @@
 \alias{stat_cooks_obs}
 \title{stat_cooks_obs}
 \usage{
-stat_cooks_obs()
+stat_cooks_obs(...)
+}
+\arguments{
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting cook's distance by observation number.

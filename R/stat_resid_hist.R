@@ -3,6 +3,7 @@
 #' @description Visualize the distribution of the residuals of a model.
 #'
 #' @param bins Adjust the number of bins.
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A `ggplot2` layer for plotting a histogram of residuals.
 #' @examples
@@ -12,7 +13,8 @@
 #' @export
 #' @importFrom rlang .data
 
-stat_resid_hist <- function(bins = 30) {
+stat_resid_hist <- function(bins = 30,
+                            ...) {
   list(
   ggplot2::geom_histogram(mapping = ggplot2::aes(x = .data$.resid),
                           bins = bins),

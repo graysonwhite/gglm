@@ -7,6 +7,7 @@
 #' @param se Keep standard error bands around line?
 #' @param method Method for fitting the line to the points.
 #' @param color Color of the line.
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A `ggplot2` layer for plotting the scale location diagnostic plot.
 #' @examples
@@ -20,7 +21,8 @@ stat_scale_location <- function(alpha = 0.5,
                                 na.rm = TRUE,
                                 se = FALSE,
                                 method = "loess",
-                                color = "steelblue") {
+                                color = "steelblue",
+                                ...) {
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
                                                y = sqrt(abs(.data$.resid / stats::sd(.data$.resid)))),

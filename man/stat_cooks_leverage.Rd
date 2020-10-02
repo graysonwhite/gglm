@@ -8,7 +8,8 @@ stat_cooks_leverage(
   alpha = 0.5,
   method = "loess",
   color = "steelblue",
-  se = FALSE
+  se = FALSE,
+  ...
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ stat_cooks_leverage(
 \item{color}{Color of the line.}
 
 \item{se}{Keep standard error bands around line?}
+
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting Cook's Distance vs. Leverage.

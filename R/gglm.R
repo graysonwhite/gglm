@@ -4,6 +4,7 @@
 #'
 #' @param data A model object of type `lm` or `glm`.
 #' @param theme The theme of the `ggplot`s to be produced.
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A a `ggplot2` object for visual diagnostic of model validity.
 #' @examples
@@ -12,7 +13,9 @@
 #' gglm(m1)
 #' @export
 
-gglm <- function(data, theme = ggplot2::theme_gray()) {
+gglm <- function(data,
+                 theme = ggplot2::theme_gray(),
+                 ...) {
   stopifnot(class(data) %in% c("lm", "glm"))
   ggplot2::theme_set(theme)
 

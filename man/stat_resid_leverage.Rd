@@ -8,7 +8,8 @@ stat_resid_leverage(
   alpha = 0.5,
   method = "loess",
   se = FALSE,
-  color = "steelblue"
+  color = "steelblue",
+  ...
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ stat_resid_leverage(
 \item{se}{Keep standard error bands around line?}
 
 \item{color}{Color of the line.}
+
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting a fitted vs. residual scatter plot.

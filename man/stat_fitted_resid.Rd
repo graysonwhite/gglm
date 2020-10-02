@@ -4,10 +4,12 @@
 \alias{stat_fitted_resid}
 \title{stat_fitted_resid}
 \usage{
-stat_fitted_resid(alpha = 0.5)
+stat_fitted_resid(alpha = 0.5, ...)
 }
 \arguments{
 \item{alpha}{Adjust transparency of points.}
+
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting a fitted vs. residual scatter plot.

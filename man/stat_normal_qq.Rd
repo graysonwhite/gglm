@@ -4,10 +4,12 @@
 \alias{stat_normal_qq}
 \title{stat_normal_qq}
 \usage{
-stat_normal_qq(alpha = 0.5)
+stat_normal_qq(alpha = 0.5, ...)
 }
 \arguments{
 \item{alpha}{Adjust transparency of points.}
+
+\item{...}{Currently ignored. For extendability.}
 }
 \value{
 A `ggplot2` layer for plotting a Normal Q-Q plot.

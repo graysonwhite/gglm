@@ -2,6 +2,7 @@
 #'
 #' @description `ggplot2` layer for plotting cook's distance by observation number.
 #'
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A `ggplot2` layer for plotting cook's distance by observation number.
 #' @examples
@@ -11,7 +12,7 @@
 #' @export
 #' @importFrom rlang .data
 
-stat_cooks_obs <- function() {
+stat_cooks_obs <- function(...) {
   list(
     ggplot2::geom_col(mapping = ggplot2::aes(x = 1:length(.data$.resid),
                                              y = .data$.cooksd)),

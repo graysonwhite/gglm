@@ -6,6 +6,7 @@
 #' @param method Method for fitting the line to the points.
 #' @param se Keep standard error bands around line?
 #' @param color Color of the line.
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A `ggplot2` layer for plotting Cook's Distance vs. Leverage.
 #' @examples
@@ -19,7 +20,8 @@
 stat_cooks_leverage <- function(alpha = 0.5,
                            method = "loess",
                            color = "steelblue",
-                           se = FALSE) {
+                           se = FALSE,
+                           ...){
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.hat,
                                                y = .data$.cooksd),

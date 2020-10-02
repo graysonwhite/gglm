@@ -3,6 +3,7 @@
 #' @description Normal QQ plot.
 #'
 #' @param alpha Adjust transparency of points.
+#' @param ... Currently ignored. For extendability.
 #'
 #' @return A `ggplot2` layer for plotting a Normal Q-Q plot.
 #' @examples
@@ -12,7 +13,8 @@
 #' @export
 #' @importFrom rlang .data
 
-stat_normal_qq <- function(alpha = 0.5) {
+stat_normal_qq <- function(alpha = 0.5,
+                           ...) {
   list(
     ggplot2::geom_qq_line(mapping = ggplot2::aes(sample = .data$.resid / stats::sd(.data$.resid)),
                           linetype = "dashed"),
