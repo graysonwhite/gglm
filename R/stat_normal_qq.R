@@ -14,12 +14,12 @@
 
 stat_normal_qq <- function(alpha = 0.5) {
   list(
-      ggplot2::stat_qq(mapping = ggplot2::aes(sample = .data$.resid / stats::sd(.data$.resid)),
-                       alpha = alpha),
-      ggplot2::labs(
-        title = "Normal Q-Q",
-        x = "Theoretical Quantiles",
-        y = "Standardized Residuals"
-      )
+    ggplot2::geom_qq_line(mapping = ggplot2::aes(sample = .data$.resid / stats::sd(.data$.resid)),
+                          linetype = "dashed"),
+    ggplot2::stat_qq(mapping = ggplot2::aes(sample = .data$.resid / stats::sd(.data$.resid)),
+                     alpha = alpha),
+    ggplot2::labs(title = "Normal Q-Q",
+                  x = "Theoretical Quantiles",
+                  y = "Standardized Residuals")
   )
 }
