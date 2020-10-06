@@ -4,3 +4,4 @@
 ^README\_files$
 ^README-.*\.png$
 ^figs$
+^\.github$

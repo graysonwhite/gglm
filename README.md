@@ -1,4 +1,10 @@
 
+<!-- badges: start -->
+
+[![R build
+status](https://github.com/graysonwhite/gglm/workflows/R-CMD-check/badge.svg)](https://github.com/graysonwhite/gglm/actions)
+<!-- badges: end -->
+
 # gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true" align="right" width=125 />
 
 ## Overview
