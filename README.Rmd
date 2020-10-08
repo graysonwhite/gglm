@@ -3,6 +3,7 @@ output: github_document
 ---
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/gglm)](https://cran.r-project.org/package=gglm)
 [![R build status](https://github.com/graysonwhite/gglm/workflows/R-CMD-check/badge.svg)](https://github.com/graysonwhite/gglm/actions)
 <!-- badges: end -->
 
@@ -14,8 +15,13 @@ output: github_document
 
 ## Installation 
 
+You can now install `gglm` from CRAN, do so with this code:
 ```{r eval = FALSE}
-# Currently, the best way to install is from GitHub.
+install.packages("gglm")
+```
+
+Or, you can install the developmental version from GitHub:
+```{r eval = FALSE}
 devtools::install_github("graysonwhite/gglm")
 ```
 

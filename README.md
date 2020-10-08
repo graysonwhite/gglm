@@ -1,6 +1,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gglm)](https://cran.r-project.org/package=gglm)
 [![R build
 status](https://github.com/graysonwhite/gglm/workflows/R-CMD-check/badge.svg)](https://github.com/graysonwhite/gglm/actions)
 <!-- badges: end -->
@@ -18,8 +20,15 @@ plots for linear models.
 
 ## Installation
 
+You can now install `gglm` from CRAN, do so with this code:
+
 ``` r
-# Currently, the best way to install is from GitHub.
+install.packages("gglm")
+```
+
+Or, you can install the developmental version from GitHub:
+
+``` r
 devtools::install_github("graysonwhite/gglm")
 ```
 
@@ -42,7 +51,7 @@ model <- lm(mpg ~ ., data = mtcars) # Create your model
 gglm(model) # Plot the four main diagnostic plots
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ### Example 2: Using the Grammar of Graphics with the `stat_*()` functions
 
@@ -53,7 +62,7 @@ ggplot(data = model) +
   stat_fitted_resid()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 # We can also add layers such as themes to these `ggplot`s and adjust features of the plot:
@@ -62,7 +71,7 @@ ggplot(data = model) +
   theme_minimal()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
 
 ## Functions
 
