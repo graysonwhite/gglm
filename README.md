@@ -12,11 +12,12 @@ status](https://github.com/graysonwhite/gglm/workflows/R-CMD-check/badge.svg)](h
 ## Overview
 
 `gglm`, The **G**rammar of **G**raphics for **L**inear **M**odel
-Diagnostics, is a package that creates beautiful `ggplot2` diagonostic
-plots for linear models that are easy to use and adhere to The Grammar
-of Graphics. The purpose of this package is to provide a sensible
-alternative to using the base-R `plot()` function to produce diagnostic
-plots for linear models.
+Diagnostics, is an R package and [official `ggplot2`
+extension](https://exts.ggplot2.tidyverse.org/gallery/) that creates
+beautiful `ggplot2` diagonostic plots for linear models that are easy to
+use and adhere to The Grammar of Graphics. The purpose of this package
+is to provide a sensible alternative to using the base-R `plot()`
+function to produce diagnostic plots for linear models.
 
 ## Installation
 
