@@ -9,10 +9,20 @@ Description: Allows for easy creation of diagnostic plots for linear models usin
 License: CC0
 Encoding: UTF-8
 LazyData: true
+Depends:
+  ggplot2
 Imports:
-  ggplot2,
+  broom,
+  broom.mixed,
+  dplyr,
+  metafor,
   patchwork,
-  rlang
+  purrr,
+  tibble,
+  tidyr,
+  utils,
+  rlang,
+  vctrs
 URL: https://github.com/graysonwhite/gglm
 BugReports: https://github.com/graysonwhite/gglm/issues
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.0
