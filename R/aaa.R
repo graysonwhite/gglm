@@ -2,6 +2,10 @@
 #' @export
 broom::augment
 
+fortify <- function (x, ...) {
+  UseMethod("fortify")
+} 
+
 .onLoad <- function(libname, pkgname) {
 
   broom_methods <- utils::.S3methods("augment", envir = asNamespace("broom"))
@@ -20,8 +24,6 @@ broom::augment
     vctrs::s3_register(generic = "ggplot2::fortify",
                        class = class)
   }
-  
-  
 }
 
 
