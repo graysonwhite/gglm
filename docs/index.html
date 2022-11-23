@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Grammar of Graphics for Linear Model Diagnostic Plots">
-<meta property="og:description" content="Allows for easy creation of diagnostic plots for linear models using the Grammar of Graphics.  
+<meta property="og:description" content="Allows for easy creation of diagnostic plots for a variety of model objects using the Grammar of Graphics.  
   Provides functionality for both individual diagnostic plots and an array of four standard diagnostic plots.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,26 +34,20 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">gglm</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/graysonwhite/gglm/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/graysonwhite/gglm/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -69,70 +65,85 @@
   <div class="contents col-md-9">
 
 
-<div id="gglm" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#gglm" class="anchor"></a>gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true" align="right" width="125">
+<div class="section level1">
+<div class="page-header"><h1 id="gglm-">gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true" align="right" width="125"><a class="anchor" aria-label="anchor" href="#gglm-"></a>
 </h1></div>
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
-<p><code>gglm</code>, The <strong>G</strong>rammar of <strong>G</strong>raphics for <strong>L</strong>inear <strong>M</strong>odel Diagnostics, is an R package and <a href="https://exts.ggplot2.tidyverse.org/gallery/">official <code>ggplot2</code> extension</a> that creates beautiful <code>ggplot2</code> diagonostic plots for linear models that are easy to use and adhere to The Grammar of Graphics. The purpose of this package is to provide a sensible alternative to using the base-R <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function to produce diagnostic plots for linear models.</p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p><code>gglm</code>, The Grammar of Graphics for Linear Model Diagnostics, is an R package and <a href="https://exts.ggplot2.tidyverse.org/gallery/" class="external-link">official <code>ggplot2</code> extension</a> that creates beautiful diagnostic plots using <code>ggplot2</code> for a variety of model objects. These diagnostic plots are easy to use and adhere to the Grammar of Graphics. The purpose of this package is to provide a sensible alternative to using the base-R <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> function to produce diagnostic plots for model objects. Currently, <code>gglm</code> supports all model objects that are supported by <code><a href="https://generics.r-lib.org/reference/augment.html" class="external-link">broom::augment()</a></code>, <code><a href="https://generics.r-lib.org/reference/augment.html" class="external-link">broom.mixed::augment()</a></code>, or <code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code>. For example, objects that are outputted from <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">stats::lm()</a></code>, <code><a href="https://rdrr.io/pkg/lme4/man/lmer.html" class="external-link">lme4::lmer()</a></code>, <code>brms::brm()</code>, and many other common modeling functions will work with <code>gglm</code>. The function <code><a href="reference/list_model_classes.html">gglm::list_model_classes()</a></code> provides a full list of model classes supported by <code>gglm</code>.</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can now install <code>gglm</code> from CRAN, do so with this code:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"gglm"</span><span class="op">)</span></pre></div>
-<p>Or, you can install the developmental version from GitHub:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"graysonwhite/gglm"</span><span class="op">)</span></pre></div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p><code>gglm</code> can be installed from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"gglm"</span><span class="op">)</span></span></code></pre></div>
+<p>Or, the developmental version of <code>gglm</code> can be installed from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"graysonwhite/gglm"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
-<p><code>gglm</code> has two main types of functions. First, the <code><a href="reference/gglm.html">gglm()</a></code> function for quickly creating the four main diagnostic plots, similar to when you call <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> on an <code>lm</code> type object. Second, the <code>stat_*()</code> functions, which produce diagnostic plots the align with The Grammar of Graphics by creating <code>ggplot2</code> layers that allow for easy plotting of particular model diagnostic plots.</p>
-<div id="example-1-quickly-creating-the-four-diagnostic-plots-with-gglm" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-1-quickly-creating-the-four-diagnostic-plots-with-gglm" class="anchor"></a>Example 1: Quickly creating the four diagnostic plots with <code>gglm()</code>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
+<p><code>gglm</code> has two main types of functions. First, the <code><a href="reference/gglm.html">gglm()</a></code> function is used for quickly creating the four main diagnostic plots, and behaves similarly to how <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> works on an <code>lm</code> type object. Second, the <code>stat_*()</code> functions are used to produce diagnostic plots by creating <code>ggplot2</code> layers. These layers allow for plotting of particular model diagnostic plots within the <code>ggplot2</code> framework.</p>
+<div class="section level3">
+<h3 id="example-1-quickly-creating-the-four-diagnostic-plots-with-gglm">Example 1: Quickly creating the four diagnostic plots with <code>gglm()</code>
+<a class="anchor" aria-label="anchor" href="#example-1-quickly-creating-the-four-diagnostic-plots-with-gglm"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/graysonwhite/gglm">gglm</a></span><span class="op">)</span> <span class="co"># Load the package</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="co"># Load example data</span>
-<span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span> <span class="co"># Create your model</span>
-
-<span class="fu"><a href="reference/gglm.html">gglm</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="co"># Plot the four main diagnostic plots</span></pre></div>
+<p>Consider a simple linear model used to predict miles per gallon with weight. We can fit this model with <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>, and then diagnose it easily by using <code><a href="reference/gglm.html">gglm()</a></code>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/graysonwhite/gglm" class="external-link">gglm</a></span><span class="op">)</span> <span class="co"># Load gglm</span></span>
+<span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span> <span class="co"># Fit the simple linear model</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/gglm.html">gglm</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="co"># Plot the four main diagnostic plots</span></span></code></pre></div>
 <p><img src="README_files/figure-gfm/unnamed-chunk-3-1.png"><!-- --></p>
-</div>
-<div id="example-2-using-the-grammar-of-graphics-with-the-stat_-functions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-2-using-the-grammar-of-graphics-with-the-stat_-functions" class="anchor"></a>Example 2: Using the Grammar of Graphics with the <code>stat_*()</code> functions</h3>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co"># Need to load ggplot2</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">model</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/stat_fitted_resid.html">stat_fitted_resid</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<p>Now, one may be interested in a more complicated model, such as a mixed model with a varying intercept on <code>cyl</code>, fit with the <code>lme4</code> package. Luckily, <code>gglm</code> accommodates a variety of models and modeling packages, so the diagnostic plots for the mixed model can be created in the same way as they were for the simple linear model.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/" class="external-link">lme4</a></span><span class="op">)</span> <span class="co"># Load lme4 to fit the mixed model</span></span>
+<span></span>
+<span><span class="va">mixed_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">cyl</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span> <span class="co"># Fit the mixed model</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/gglm.html">gglm</a></span><span class="op">(</span><span class="va">mixed_model</span><span class="op">)</span> <span class="co"># Plot the four main diagnostic plots.</span></span></code></pre></div>
 <p><img src="README_files/figure-gfm/unnamed-chunk-4-1.png"><!-- --></p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="co"># We can also add layers such as themes to these `ggplot`s and adjust features of the plot:</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">model</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/stat_cooks_leverage.html">stat_cooks_leverage</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-4-2.png"><!-- --></p>
+</div>
+<div class="section level3">
+<h3 id="example-2-using-the-grammar-of-graphics-with-the-stat_-functions">Example 2: Using the Grammar of Graphics with the <code>stat_*()</code> functions<a class="anchor" aria-label="anchor" href="#example-2-using-the-grammar-of-graphics-with-the-stat_-functions"></a>
+</h3>
+<p><code>gglm</code> also provides functionality to stay within the Grammar of Graphics by providing functions that can be used as <code>ggplot2</code> layers. An example of one of these functions is the <code><a href="reference/stat_fitted_resid.html">stat_fitted_resid()</a></code> function. With this function, we can take a closer look at just the fitted vs. residual plot from the mixed model fit in Example 1.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mixed_model</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/stat_fitted_resid.html">stat_fitted_resid</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="README_files/figure-gfm/unnamed-chunk-5-1.png"><!-- --></p>
+<p>After taking a closer look, we may want to clean up the look of the plot for a presentation or a project. This can be done by adding other layers from <code>ggplot2</code> to the plot. Note that any <code>ggplot2</code> layers can be added on to any of the <code>stat_*()</code> functions provided by <code>gglm</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mixed_model</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/stat_fitted_resid.html">stat_fitted_resid</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co"># add a clean theme </span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Residual vs fitted values for the mixed model"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># change the title</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># center the title</span></span></code></pre></div>
+<p><img src="README_files/figure-gfm/unnamed-chunk-6-1.png"><!-- --></p>
+<p>Wow! What a beautiful and production-ready diagnostic plot!</p>
 </div>
 </div>
-<div id="functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#functions" class="anchor"></a>Functions</h2>
-<div id="for-quick-and-easy-plotting" class="section level3">
-<h3 class="hasAnchor">
-<a href="#for-quick-and-easy-plotting" class="anchor"></a>For quick and easy plotting</h3>
-<p><code><a href="reference/gglm.html">gglm()</a></code> plots the four default diagnostic plots when supplied an <code>lm</code> object. This function works similarly to <code><a href="https://rdrr.io/r/stats/plot.lm.html">plot.lm()</a></code>, except that it displays the four diagnostic plots at once.</p>
+<div class="section level2">
+<h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h2>
+<div class="section level3">
+<h3 id="for-quick-and-easy-plotting">For quick and easy plotting<a class="anchor" aria-label="anchor" href="#for-quick-and-easy-plotting"></a>
+</h3>
+<p><code><a href="reference/gglm.html">gglm()</a></code> plots the four default diagnostic plots when supplied a model object (this is similar to <code>plot.lm()</code> in the case of an object generated by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>). Note that can <code><a href="reference/gglm.html">gglm()</a></code> take many types of model object classes as its input, and possible model object classes can be seen with <code><a href="reference/list_model_classes.html">list_model_classes()</a></code></p>
 </div>
-<div id="following-the-grammar-of-graphics" class="section level3">
-<h3 class="hasAnchor">
-<a href="#following-the-grammar-of-graphics" class="anchor"></a>Following the Grammar of Graphics</h3>
+<div class="section level3">
+<h3 id="following-the-grammar-of-graphics">Following the Grammar of Graphics<a class="anchor" aria-label="anchor" href="#following-the-grammar-of-graphics"></a>
+</h3>
 <p><code><a href="reference/stat_normal_qq.html">stat_normal_qq()</a></code>, <code><a href="reference/stat_fitted_resid.html">stat_fitted_resid()</a></code>, <code><a href="reference/stat_resid_hist.html">stat_resid_hist()</a></code>, <code><a href="reference/stat_scale_location.html">stat_scale_location()</a></code>, <code><a href="reference/stat_cooks_leverage.html">stat_cooks_leverage()</a></code>, <code><a href="reference/stat_cooks_obs.html">stat_cooks_obs()</a></code>, and <code><a href="reference/stat_resid_leverage.html">stat_resid_leverage()</a></code> all are <code>ggplot2</code> layers used to create individual diagnostic plots. To use these, follow Example 2.</p>
+</div>
+<div class="section level3">
+<h3 id="other-functions">Other functions<a class="anchor" aria-label="anchor" href="#other-functions"></a>
+</h3>
+<p><code><a href="reference/list_model_classes.html">list_model_classes()</a></code> lists the model classes compatible with <code>gglm</code>.</p>
 </div>
 </div>
 </div>
@@ -141,46 +152,56 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=gglm">https://​cloud.r-project.org/​package=gglm</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/graysonwhite/gglm/">https://​github.com/​graysonwhite/​gglm/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/graysonwhite/gglm/issues">https://​github.com/​graysonwhite/​gglm/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=gglm" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/graysonwhite/gglm/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/graysonwhite/gglm/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>CC0</li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Grayson White <br><small class="roles"> Maintainer, author </small>  </li>
+<li><a href="authors.html#citation">Citing gglm</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=gglm"><img src="https://www.r-pkg.org/badges/version/gglm" alt="CRAN status"></a></li>
-<li><a href="https://github.com/graysonwhite/gglm/actions"><img src="https://github.com/graysonwhite/gglm/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li>Grayson White <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-4993-2792" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=gglm" class="external-link"><img src="https://www.r-pkg.org/badges/version/gglm" alt="CRAN status"></a></li>
+<li><a href="https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Grayson White.</p>
+  <p></p>
+<p>Developed by Grayson White.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -188,6 +209,8 @@
 
   
 
+
+  
 
   </body>
 </html>
