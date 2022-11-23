@@ -4,7 +4,7 @@ output: github_document
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/gglm)](https://cran.r-project.org/package=gglm)
-[![R build status](https://github.com/graysonwhite/gglm/workflows/R-CMD-check/badge.svg)](https://github.com/graysonwhite/gglm/actions)
+[![R-CMD-check](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true" align="right" width=125 />
