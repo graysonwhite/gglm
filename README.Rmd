@@ -2,6 +2,13 @@
 output: github_document
 ---
 
+```{r, include = F}
+knitr::opts_chunk$set(
+  fig.path = "man/figures/"
+)
+```
+
+
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/gglm)](https://cran.r-project.org/package=gglm)
 [![R-CMD-check](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml)
