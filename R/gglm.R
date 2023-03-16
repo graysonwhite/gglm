@@ -16,7 +16,7 @@
 gglm <- function(data,
                  theme = ggplot2::theme_gray(),
                  ...) {
-  if (!(class(data) %in% c("data.frame", "tbl_df", "tbl"))) {
+  if (!any(class(data) %in% c("data.frame", "tbl_df", "tbl"))) {
     tryCatch({
       fortify(data)
     },

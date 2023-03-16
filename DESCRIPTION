@@ -30,4 +30,4 @@ Suggests:
   lme4
 URL: https://github.com/graysonwhite/gglm
 BugReports: https://github.com/graysonwhite/gglm/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
