@@ -7,3 +7,4 @@
 ^\.github$
 ^docs$
 ^paper$
+^CRAN-SUBMISSION$
