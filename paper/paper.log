@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.15)  15 JAN 2024 17:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.15)  15 JAN 2024 21:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -924,8 +924,8 @@ Package hyperref Warning: Suppressing link with empty target on input line 271.
 
 Package hyperref Warning: Suppressing link with empty target on input line 271.
 
-File: /home/grayson/R/x86_64-pc-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
-</home/grayson/R/x86_64-pc-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+File: /home/grayson/R/aarch64-unknown-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+</home/grayson/R/aarch64-unknown-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
 
 Package fancyhdr Warning: \headheight is too small (62.59596pt): 
 (fancyhdr)                Make it at least 63.55022pt, for example:
@@ -934,12 +934,12 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 331.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 334.
 [1
 
 ]
-File: /home/grayson/R/x86_64-pc-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
-</home/grayson/R/x86_64-pc-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+File: /home/grayson/R/aarch64-unknown-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+</home/grayson/R/aarch64-unknown-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
 
 Package fancyhdr Warning: \headheight is too small (62.59596pt): 
 (fancyhdr)                Make it at least 63.55022pt, for example:
@@ -948,8 +948,8 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 [2]
-File: /home/grayson/R/x86_64-pc-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
-</home/grayson/R/x86_64-pc-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
+File: /home/grayson/R/aarch64-unknown-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
+</home/grayson/R/aarch64-unknown-linux-gnu-library/4.3/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png>
 
 Package fancyhdr Warning: \headheight is too small (62.59596pt): 
 (fancyhdr)                Make it at least 63.55022pt, for example:
@@ -963,18 +963,18 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 0B3BF1C9D2BC7F6B8E6DB44814E9B8B7;651.
+(rerunfilecheck)             Checksum: 36E8A3BFD73D3865102046825CE75FCD;641.
 Package logreq Info: Writing requests to 'paper.run.xml'.
 \openout1 = `paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
  34349 strings out of 476822
- 703677 string characters out of 5804165
- 1944174 words of memory out of 5000000
+ 703729 string characters out of 5804165
+ 1943174 words of memory out of 5000000
  55827 multiletter control sequences out of 15000+600000
  564925 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,12n,87p,678b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,87p,678b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on paper.pdf (3 pages).
