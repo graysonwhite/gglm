@@ -17,13 +17,6 @@ date: 15 January 2024
 bibliography: paper.bib
 citation_author: White
 year: 2024
-output: 
-  rticles::joss_article:
-    keep_tex: true
-    includes:
-      in_header: columns.tex
-csl: apa.csl
-journal: JOSS
 ---
 
 # Summary
