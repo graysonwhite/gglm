@@ -35,7 +35,7 @@ stat_resid_leverage <-
         method = method,
         se = se,
         color = color,
-        size = 1,
+        linewidth = 1,
         formula = "y ~ x"
       ),
       ggplot2::labs(title = "Residual vs. Leverage",
