@@ -8,3 +8,5 @@
 ^docs$
 ^paper$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^pkgdown$
