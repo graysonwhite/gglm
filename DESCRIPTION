@@ -18,14 +18,7 @@ Depends:
 Imports:
   broom,
   broom.mixed,
-  cli,
-  dplyr,
-  metafor,
-  nlme,
   patchwork,
-  purrr,
-  tibble,
-  tidyr,
   utils,
   rlang,
   vctrs
@@ -34,5 +27,5 @@ Suggests:
     testthat (>= 3.0.0)
 URL: https://github.com/graysonwhite/gglm, https://graysonwhite.com/gglm/
 BugReports: https://github.com/graysonwhite/gglm/issues
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 Config/testthat/edition: 3

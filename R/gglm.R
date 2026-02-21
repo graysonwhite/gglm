@@ -18,7 +18,7 @@ gglm <- function(data,
                  ...) {
   if (!any(class(data) %in% c("data.frame", "tbl_df", "tbl"))) {
     tryCatch({
-      fortify(data)
+      ggplot2::fortify(data)
     },
     error = function(cond) {
       message(

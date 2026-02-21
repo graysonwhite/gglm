@@ -16,6 +16,7 @@ utils::globalVariables(c(
   "dfbetas",
   "dffits",
   "hat",
+  "id",
   "linpred",
   "probabilities",
   "rstudent",

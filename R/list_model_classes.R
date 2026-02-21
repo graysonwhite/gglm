@@ -15,13 +15,9 @@
 #' @export
 
 list_model_classes <- function(...) {
-  ns <- getNamespace("gglm")
-  model_classes <- c()
-  for (i in names(ns)) {
-    if (startsWith(i, "fortify.")) {
-      class <- gsub("fortify.", "", i)
-      model_classes <- c(model_classes, class)
-    }
-  }
+  broom_methods <- utils::.S3methods("augment", envir = asNamespace("broom"))
+  broom.mixed_methods <- utils::.S3methods("augment", envir = asNamespace("broom.mixed"))
+  methods_list <- unique(c(broom_methods, broom.mixed_methods))
+  model_classes <- gsub("augment\\.", "", methods_list)
   return(model_classes)
 }
