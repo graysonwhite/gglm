@@ -9,7 +9,8 @@ stat_normal_qq(alpha = 0.5, ...)
 \arguments{
 \item{alpha}{Adjust transparency of points.}
 
-\item{...}{Currently ignored. For extendability.}
+\item{...}{Additional arguments to be passed to the `aes()` of `stat_qq()`.
+These arguments correspond to the aesthetics of the points on the plot.}
 }
 \value{
 A `ggplot2` layer for plotting a Normal Q-Q plot.

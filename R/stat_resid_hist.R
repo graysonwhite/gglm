@@ -4,7 +4,7 @@
 #'
 #' @param bins Adjust the number of bins.
 #' @param ... Currently ignored. For extendability.
-#'
+#' 
 #' @return A `ggplot2` layer for plotting a histogram of residuals.
 #' @examples
 #' data(mtcars)

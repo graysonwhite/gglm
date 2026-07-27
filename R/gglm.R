@@ -33,19 +33,20 @@ Note that for `gglm` to work, there must be an applicable method from `broom` or
 
   fitted_resid <-
     ggplot2::ggplot(data) +
-    stat_fitted_resid()
+    stat_fitted_resid(... = ...)
   
   qq <-
     ggplot2::ggplot(data) +
-    stat_normal_qq()
+    stat_normal_qq(... = ...)
   
   scale_location <-
     ggplot2::ggplot(data) +
-    stat_scale_location()
+    stat_scale_location(... = ...)
   
   resid_lev <-
     ggplot2::ggplot(data) +
-    stat_resid_leverage()
+    stat_resid_leverage(... = ...)
   
-  patchwork::wrap_plots((fitted_resid + qq) / (scale_location + resid_lev))
+  patchwork::wrap_plots((fitted_resid + qq) / (scale_location + resid_lev),
+                        guides = "collect") 
 }

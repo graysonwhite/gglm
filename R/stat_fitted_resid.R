@@ -3,7 +3,7 @@
 #' @description `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #'
 #' @param alpha Adjust transparency of points.
-#' @param ... Currently ignored. For extendability.
+#' @param ... Additional arguments to be passed to the `aes()` in `geom_point()`.
 #'
 #' @return A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 #' @examples
@@ -17,7 +17,8 @@ stat_fitted_resid <- function(alpha = 0.5,
                               ...) {
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
-                                               y = .data$.resid),
+                                               y = .data$.resid,
+                                               ... = ...),
                         alpha = alpha),
     ggplot2::geom_hline(yintercept = 0,
                         linetype = "dashed"),

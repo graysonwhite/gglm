@@ -5,8 +5,8 @@
 #' @param alpha Adjust transparency of points.
 #' @param method Method for fitting the line to the points.
 #' @param se Keep standard error bands around line?
-#' @param color Color of the line.
-#' @param ... Currently ignored. For extendability.
+#' @param linecolor Color of the line.
+#' @param ... Additional arguments to be passed to the `aes()` in `geom_point()`.
 #'
 #' @return A `ggplot2` layer for plotting Cook's Distance vs. Leverage.
 #' @examples
@@ -19,19 +19,20 @@
 
 stat_cooks_leverage <- function(alpha = 0.5,
                            method = "loess",
-                           color = "steelblue",
+                           linecolor = "steelblue",
                            se = FALSE,
                            ...){
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.hat,
-                                               y = .data$.cooksd),
+                                               y = .data$.cooksd,
+                                               ... = ...),
                         alpha = alpha),
     ggplot2::geom_smooth(
       mapping = ggplot2::aes(x = .data$.hat,
                              y = .data$.cooksd),
       method = method,
       se = se,
-      color = color,
+      color = linecolor,
       size = 1,
       formula = "y ~ x"
     ),

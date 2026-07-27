@@ -6,8 +6,8 @@
 #' @param na.rm Remove points with value NA?
 #' @param se Keep standard error bands around line?
 #' @param method Method for fitting the line to the points.
-#' @param color Color of the line.
-#' @param ... Currently ignored. For extendability.
+#' @param linecolor Color of the line.
+#' @param ... Additional arguments to be passed to the `aes()` in `geom_point()`.
 #'
 #' @return A `ggplot2` layer for plotting the scale location diagnostic plot.
 #' @examples
@@ -21,18 +21,19 @@ stat_scale_location <- function(alpha = 0.5,
                                 na.rm = TRUE,
                                 se = FALSE,
                                 method = "loess",
-                                color = "steelblue",
+                                linecolor = "steelblue",
                                 ...) {
   list(
     ggplot2::geom_point(mapping = ggplot2::aes(x = .data$.fitted,
-                                               y = sqrt(abs(.data$.resid / stats::sd(.data$.resid)))),
+                                               y = sqrt(abs(.data$.resid / stats::sd(.data$.resid))),
+                                               ... = ...),
                         na.rm = na.rm,
                         alpha = alpha),
     ggplot2::stat_smooth(mapping = ggplot2::aes(x = .data$.fitted,
                                                 y = sqrt(abs(.data$.resid / stats::sd(.data$.resid)))),
                          method = method,
                          se = se,
-                         color = color,
+                         color = linecolor,
                          formula = "y ~ x"),
     ggplot2::labs(x = "Fitted values",
                   y = expression(sqrt("|Standardized residuals|")),

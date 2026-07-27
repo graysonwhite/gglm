@@ -9,7 +9,7 @@ stat_fitted_resid(alpha = 0.5, ...)
 \arguments{
 \item{alpha}{Adjust transparency of points.}
 
-\item{...}{Currently ignored. For extendability.}
+\item{...}{Additional arguments to be passed to the `aes()` in `geom_point()`.}
 }
 \value{
 A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
