@@ -79,7 +79,7 @@
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span> <span class="co"># Fit the simple linear model</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/gglm.html">gglm</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="co"># Plot the four main diagnostic plots</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-3-1.png"><!-- --></p>
+<p><img src="reference/figures/unnamed-chunk-4-1.png"><!-- --></p>
 <p>Now, one may be interested in a more complicated model, such as a mixed model with a varying intercept on <code>cyl</code>, fit with the <code>lme4</code> package. Luckily, <code>gglm</code> accommodates a variety of models and modeling packages, so the diagnostic plots for the mixed model can be created in the same way as they were for the simple linear model.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/" class="external-link">lme4</a></span><span class="op">)</span> <span class="co"># Load lme4 to fit the mixed model</span></span>
@@ -87,7 +87,7 @@
 <span><span class="va">mixed_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">cyl</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span> <span class="co"># Fit the mixed model</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/gglm.html">gglm</a></span><span class="op">(</span><span class="va">mixed_model</span><span class="op">)</span> <span class="co"># Plot the four main diagnostic plots.</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-4-1.png"><!-- --></p>
+<p><img src="reference/figures/unnamed-chunk-5-1.png"><!-- --></p>
 </div>
 <div class="section level3">
 <h3 id="example-2-using-the-grammar-of-graphics-with-the-stat_-functions">Example 2: Using the Grammar of Graphics with the <code>stat_*()</code> functions<a class="anchor" aria-label="anchor" href="#example-2-using-the-grammar-of-graphics-with-the-stat_-functions"></a>
@@ -96,7 +96,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mixed_model</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/stat_fitted_resid.html">stat_fitted_resid</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-5-1.png"><!-- --></p>
+<p><img src="reference/figures/unnamed-chunk-6-1.png"><!-- --></p>
 <p>After taking a closer look, we may want to clean up the look of the plot for a presentation or a project. This can be done by adding other layers from <code>ggplot2</code> to the plot. Note that any <code>ggplot2</code> layers can be added on to any of the <code>stat_*()</code> functions provided by <code>gglm</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mixed_model</span><span class="op">)</span> <span class="op">+</span></span>
@@ -104,7 +104,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co"># add a clean theme </span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Residual vs fitted values for the mixed model"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># change the title</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># center the title</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-6-1.png"><!-- --></p>
+<p><img src="reference/figures/unnamed-chunk-7-1.png"><!-- --></p>
 <p>Wow! What a beautiful and production-ready diagnostic plot!</p>
 </div>
 </div>

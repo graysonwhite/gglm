@@ -68,7 +68,7 @@ model <- lm(mpg ~ wt, data = mtcars) # Fit the simple linear model
 gglm(model) # Plot the four main diagnostic plots
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)
+![](reference/figures/unnamed-chunk-4-1.png)
 
 Now, one may be interested in a more complicated model, such as a mixed
 model with a varying intercept on `cyl`, fit with the `lme4` package.
@@ -85,7 +85,7 @@ mixed_model <- lmer(mpg ~ wt + (1 | cyl), data = mtcars) # Fit the mixed model
 gglm(mixed_model) # Plot the four main diagnostic plots.
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)
+![](reference/figures/unnamed-chunk-5-1.png)
 
 ### Example 2: Using the Grammar of Graphics with the `stat_*()` functions
 
@@ -102,7 +102,7 @@ ggplot(data = mixed_model) +
   stat_fitted_resid()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)
+![](reference/figures/unnamed-chunk-6-1.png)
 
 After taking a closer look, we may want to clean up the look of the plot
 for a presentation or a project. This can be done by adding other layers
@@ -118,7 +118,7 @@ ggplot(data = mixed_model) +
   theme(plot.title = element_text(hjust = 0.5)) # center the title
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)
+![](reference/figures/unnamed-chunk-7-1.png)
 
 Wow! What a beautiful and production-ready diagnostic plot!
 
