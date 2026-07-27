@@ -33,7 +33,7 @@ stat_cooks_leverage <- function(alpha = 0.5,
       method = method,
       se = se,
       color = linecolor,
-      size = 1,
+      linewidth = 1,
       formula = "y ~ x"
     ),
     ggplot2::labs(
