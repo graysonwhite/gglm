@@ -10,7 +10,7 @@ stat_scale_location(
   na.rm = TRUE,
   se = FALSE,
   method = "loess",
-  color = "steelblue",
+  linecolor = "steelblue",
   ...
 )
 ```
@@ -33,13 +33,14 @@ stat_scale_location(
 
   Method for fitting the line to the points.
 
-- color:
+- linecolor:
 
   Color of the line.
 
 - ...:
 
-  Currently ignored. For extendability.
+  Additional arguments to be passed to the \`aes()\` in
+  \`geom_point()\`.
 
 ## Value
 

@@ -8,7 +8,7 @@ Cook's Distance vs. Leverage
 stat_cooks_leverage(
   alpha = 0.5,
   method = "loess",
-  color = "steelblue",
+  linecolor = "steelblue",
   se = FALSE,
   ...
 )
@@ -24,7 +24,7 @@ stat_cooks_leverage(
 
   Method for fitting the line to the points.
 
-- color:
+- linecolor:
 
   Color of the line.
 
@@ -34,7 +34,8 @@ stat_cooks_leverage(
 
 - ...:
 
-  Currently ignored. For extendability.
+  Additional arguments to be passed to the \`aes()\` in
+  \`geom_point()\`.
 
 ## Value
 

@@ -29,12 +29,14 @@ provides a full list of model classes supported by `gglm`.
 `gglm` can be installed from CRAN:
 
 ``` r
+
 install.packages("gglm")
 ```
 
 Or, the developmental version of `gglm` can be installed from GitHub:
 
 ``` r
+
 devtools::install_github("graysonwhite/gglm")
 ```
 
@@ -58,6 +60,7 @@ weight. We can fit this model with
 by using [`gglm()`](https://graysonwhite.com/gglm/reference/gglm.md).
 
 ``` r
+
 library(gglm) # Load gglm
 
 model <- lm(mpg ~ wt, data = mtcars) # Fit the simple linear model
@@ -74,6 +77,7 @@ so the diagnostic plots for the mixed model can be created in the same
 way as they were for the simple linear model.
 
 ``` r
+
 library(lme4) # Load lme4 to fit the mixed model
 
 mixed_model <- lmer(mpg ~ wt + (1 | cyl), data = mtcars) # Fit the mixed model
@@ -93,6 +97,7 @@ function. With this function, we can take a closer look at just the
 fitted vs. residual plot from the mixed model fit in Example 1.
 
 ``` r
+
 ggplot(data = mixed_model) +
   stat_fitted_resid()
 ```
@@ -105,6 +110,7 @@ from `ggplot2` to the plot. Note that any `ggplot2` layers can be added
 on to any of the `stat_*()` functions provided by `gglm`.
 
 ``` r
+
 ggplot(data = mixed_model) +
   stat_fitted_resid(alpha = 1) + 
   theme_bw() + # add a clean theme 

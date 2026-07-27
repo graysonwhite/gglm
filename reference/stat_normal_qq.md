@@ -16,7 +16,9 @@ stat_normal_qq(alpha = 0.5, ...)
 
 - ...:
 
-  Currently ignored. For extendability.
+  Additional arguments to be passed to the \`aes()\` of \`stat_qq()\`.
+  These arguments correspond to the aesthetics of the points on the
+  plot.
 
 ## Value
 

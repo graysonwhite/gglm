@@ -16,7 +16,8 @@ stat_fitted_resid(alpha = 0.5, ...)
 
 - ...:
 
-  Currently ignored. For extendability.
+  Additional arguments to be passed to the \`aes()\` in
+  \`geom_point()\`.
 
 ## Value
 
