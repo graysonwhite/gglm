@@ -32,8 +32,4 @@ A a \`ggplot2\` object for visual diagnostic of model validity.
 data(mtcars)
 m1 <- lm(mpg ~ cyl + disp + hp, data = mtcars)
 gglm(m1)
-#> Warning: `fortify(<lm>)` was deprecated in ggplot2 4.0.0.
-#> ℹ Please use `broom::augment(<lm>)` instead.
-#> ℹ The deprecated feature was likely used in the ggplot2 package.
-#>   Please report the issue at <https://github.com/tidyverse/ggplot2/issues>.
 ```
