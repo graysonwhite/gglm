@@ -19,5 +19,6 @@ list_model_classes <- function(...) {
   broom.mixed_methods <- utils::.S3methods("augment", envir = asNamespace("broom.mixed"))
   methods_list <- unique(c(broom_methods, broom.mixed_methods))
   model_classes <- gsub("augment\\.", "", methods_list)
+  model_classes <- setdiff(model_classes, c("data.frame", "default", "NULL"))
   return(model_classes)
 }
