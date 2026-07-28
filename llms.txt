@@ -158,6 +158,8 @@ lists the model classes compatible with `gglm`.
 ## All functions
 
 - [`gglm()`](https://graysonwhite.com/gglm/reference/gglm.md) : gglm
+- [`launch()`](https://graysonwhite.com/gglm/reference/launch.md) :
+  launch
 - [`list_model_classes()`](https://graysonwhite.com/gglm/reference/list_model_classes.md)
   : list_model_classes
 - [`stat_cooks_leverage()`](https://graysonwhite.com/gglm/reference/stat_cooks_leverage.md)

@@ -12,7 +12,7 @@ gglm(data, theme = ggplot2::theme_gray(), ...)
 
 - data:
 
-  A model object of type \`lm\` or \`glm\`.
+  A model object.
 
 - theme:
 
@@ -24,7 +24,7 @@ gglm(data, theme = ggplot2::theme_gray(), ...)
 
 ## Value
 
-A a \`ggplot2\` object for visual diagnostic of model validity.
+A \`ggplot2\` object for visual diagnostic of model validity.
 
 ## Examples
 
