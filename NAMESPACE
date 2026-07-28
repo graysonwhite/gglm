@@ -2,6 +2,7 @@
 
 export(augment)
 export(gglm)
+export(launch)
 export(list_model_classes)
 export(stat_cooks_leverage)
 export(stat_cooks_obs)

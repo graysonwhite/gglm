@@ -2,11 +2,11 @@
 #'
 #' @description Provides four standard visual model diagnostic plots with `ggplot2`.
 #'
-#' @param data A model object of type `lm` or `glm`.
+#' @param data A model object.
 #' @param theme The theme of the `ggplot`s to be produced.
 #' @param ... Currently ignored. For extendability.
 #'
-#' @return A a `ggplot2` object for visual diagnostic of model validity.
+#' @return A `ggplot2` object for visual diagnostic of model validity.
 #' @examples
 #' data(mtcars)
 #' m1 <- lm(mpg ~ cyl + disp + hp, data = mtcars)

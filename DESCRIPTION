@@ -16,12 +16,14 @@ Encoding: UTF-8
 Depends:
   ggplot2
 Imports:
-  broom,
-  broom.mixed,
-  patchwork,
-  utils,
-  rlang,
-  vctrs
+    bslib,
+    broom,
+    broom.mixed,
+    patchwork,
+    utils,
+    rlang,
+    shiny,
+    vctrs
 Suggests:
     lme4,
     testthat (>= 3.0.0)

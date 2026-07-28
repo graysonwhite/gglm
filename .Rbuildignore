@@ -10,3 +10,4 @@
 ^CRAN-SUBMISSION$
 ^_pkgdown\.yml$
 ^pkgdown$
+^sandbox$

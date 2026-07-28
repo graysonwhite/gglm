@@ -7,14 +7,14 @@
 gglm(data, theme = ggplot2::theme_gray(), ...)
 }
 \arguments{
-\item{data}{A model object of type `lm` or `glm`.}
+\item{data}{A model object.}
 
 \item{theme}{The theme of the `ggplot`s to be produced.}
 
 \item{...}{Currently ignored. For extendability.}
 }
 \value{
-A a `ggplot2` object for visual diagnostic of model validity.
+A `ggplot2` object for visual diagnostic of model validity.
 }
 \description{
 Provides four standard visual model diagnostic plots with `ggplot2`.
