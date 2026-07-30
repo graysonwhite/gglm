@@ -1,6 +1,6 @@
 # launch
 
-Launch a R Shiny-based applet for model diagnostics.
+Launches a R Shiny-based applet for linear model diagnostics.
 
 ## Usage
 
@@ -21,7 +21,7 @@ launch(data = NULL, ...)
 ## Value
 
 None. Launches a \`shiny\` applet for point-and-click based model
-diagnostics
+diagnostics.
 
 ## Examples
 
