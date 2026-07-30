@@ -21,6 +21,7 @@ Imports:
     broom.mixed,
     DT,
     ggthemes,
+    htmltools,
     palmerpenguins,
     patchwork,
     utils,

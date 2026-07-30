@@ -15,6 +15,8 @@
 
 launch <- function(data = NULL, ...) {
 
+  shiny::addResourcePath("gglm-www", system.file("www", package = "gglm"))
+
   example_datasets <- list(
     "penguins" = palmerpenguins::penguins,
     "candy" = utils::read.csv(
@@ -60,104 +62,132 @@ launch <- function(data = NULL, ...) {
   
   if (is.null(data)) {
     data_source_choices <- c("Built-in dataset" = "example",
-                             "Upload your own data" = "upload")
+                             "Upload" = "upload")
   } else {
     data_source_choices <- c(
-      "Data supplied to launch()" = "supplied",
+      "Data supplied to gglm::launch()" = "supplied",
       "Built-in dataset" = "example",
-      "Upload your own data" = "upload"
+      "Upload" = "upload"
     )
   }
   
-  ui <- bslib::page_navbar(
-    title = "Linear Model Diagnostics",
-    id = "main_nav",
-    theme = bslib::bs_theme(version = 5, bootswatch = "zephyr"),
-    
-    sidebar = bslib::sidebar(
-      title = "Data",
-      
-      shiny::selectInput(
-        "data_source",
-        "Data source:",
-        choices = data_source_choices,
-        selected = if (!is.null(data))
-          "supplied"
-        else
-          "example"
+  ui <- bslib::page_fillable(
+    title = "Linear Model Diagnostics Dashboard",
+    theme = bslib::bs_theme(
+      version = 5,
+      bootswatch = "zephyr",
+      primary = "#E3A400",
+      secondary = "#E8C25F"
+    ),
+
+    launch_css(),
+
+    bslib::navset_bar(
+      title = htmltools::tags$span(
+        htmltools::tags$img(src = "gglm-www/gglm.gif", height = "40px", style = "margin-right: 8px;"),
+        "Linear Model Diagnostics"
       ),
-      
-      shiny::conditionalPanel(
-        condition = "input.data_source == 'upload'",
-        shiny::fileInput("upload_file", "Upload CSV file:", accept = c(".csv"))
-      ),
-      shiny::conditionalPanel(
-        condition = "input.data_source == 'example'",
+      id = "main_nav",
+      navbar_options = bslib::navbar_options(bg = "#FCF4E0"),
+
+      sidebar = bslib::sidebar(
+        id = "data_sidebar",
+        title = htmltools::tags$header(
+          class = "sidebar-title",
+          shiny::textOutput("sidebar_title_text", inline = TRUE)
+        ),
+        bg = "#FCF4E0",
+
         shiny::selectInput(
-          "example_dataset",
-          "Built-in dataset:",
-          choices = names(example_datasets)
+          "data_source",
+          "Data source:",
+          choices = data_source_choices,
+          selected = if (!is.null(data))
+            "supplied"
+          else
+            "example"
+        ),
+
+        shiny::conditionalPanel(
+          condition = "input.data_source == 'upload'",
+          shiny::fileInput("upload_file", "Upload CSV file:", accept = c(".csv"))
+        ),
+        shiny::conditionalPanel(
+          condition = "input.data_source == 'example'",
+          shiny::selectInput(
+            "example_dataset",
+            "Built-in dataset:",
+            choices = names(example_datasets)
+          )
+        ),
+
+        shiny::conditionalPanel(
+          condition = "input.main_nav == 'Model Diagnostics'",
+          shiny::selectInput("resp_var", "Response variable:", choices = NULL),
+          shiny::selectInput(
+            "aux_vars",
+            "Auxiliary variable(s):",
+            choices = NULL,
+            multiple = TRUE
+          ),
+          shiny::selectInput(
+            "interactions",
+            "Interaction term(s):",
+            choices = NULL,
+            multiple = TRUE
+          ),
+          shiny::actionButton("fit_model", "Fit model")
         )
       ),
-      
-      shiny::conditionalPanel(
-        condition = "input.main_nav == 'Model Diagnostics'",
-        shiny::selectInput("resp_var", "Response variable:", choices = NULL),
-        shiny::selectInput(
-          "aux_vars",
-          "Auxiliary variable(s):",
-          choices = NULL,
-          multiple = TRUE
-        ),
-        shiny::selectInput(
-          "interactions",
-          "Interaction term(s):",
-          choices = NULL,
-          multiple = TRUE
-        ),
-        shiny::actionButton("fit_model", "Fit model")
-      )
-    ),
-    
-    bslib::nav_panel(
-      "Model Diagnostics",
-      
-      bslib::layout_sidebar(
-        sidebar = bslib::sidebar(
-          title = "Plot Customization",
-          position = "right",
-          
-          shiny::selectInput("which_plot", "Which Plot?", choices = which_plot_choices),
-          shiny::sliderInput(
-            "point_alpha",
-            "Point transparency:",
-            min = 0.1,
-            max = 1,
-            value = 0.5,
-            step = 0.05
+
+      bslib::nav_panel(
+        "Model Diagnostics",
+
+        bslib::layout_sidebar(
+          border = FALSE,
+          sidebar = bslib::sidebar(
+            title = "Plot Customization",
+            position = "right",
+            bg = "#FCF4E0",
+
+            shiny::selectInput("which_plot", "Which Plot?", choices = which_plot_choices),
+            shiny::sliderInput(
+              "point_alpha",
+              "Point transparency:",
+              min = 0.1,
+              max = 1,
+              value = 0.5,
+              step = 0.05
+            ),
+            shiny::selectInput("color_var", "Color points by:", choices = c("None" = "")),
+            shiny::conditionalPanel(
+              condition = "input.color_var != ''",
+              shiny::selectInput("color_palette", "Color palette:", choices = palette_choices)
+            ),
+            shiny::selectInput("plot_theme", "Plot theme:", choices = names(theme_choices)),
+            shiny::actionButton("update_plot", "Update Plot")
           ),
-          shiny::selectInput("color_var", "Color points by:", choices = c("None" = "")),
-          shiny::conditionalPanel(
-            condition = "input.color_var != ''",
-            shiny::selectInput("color_palette", "Color palette:", choices = palette_choices)
-          ),
-          shiny::selectInput("plot_theme", "Plot theme:", choices = names(theme_choices)),
-          shiny::actionButton("update_plot", "Update Plot")
-        ),
-        
-        bslib::card(
-          bslib::card_header("Model Diagnostic Quartet"),
-          shiny::plotOutput("gglm_plot")
+
+          bslib::card(
+            class = "border-0 shadow-none",
+            bslib::card_header("Linear Model Diagnostic Plot(s)"),
+            shiny::plotOutput("gglm_plot")
+          )
         )
-      )
-    ),
-    
-    bslib::nav_panel("Data", bslib::card(
-      bslib::card_header("Data"), DT::DTOutput("data_table")
-    ))
+      ),
+
+      bslib::nav_panel("Data", bslib::card(
+        class = "border-0 shadow-none",
+        bslib::card_header("Data"), DT::DTOutput("data_table")
+      ))
+    )
   )
   
   server <- function(input, output, session) {
+    output$sidebar_title_text <- shiny::renderText({
+      if (identical(input$main_nav, "Model Diagnostics")) "Model Builder" else "Data Explorer"
+    })
+
     active_data <- shiny::reactive({
       switch(
         input$data_source,
