@@ -19,8 +19,12 @@ Imports:
     bslib,
     broom,
     broom.mixed,
+    DT,
+    ggthemes,
+    palmerpenguins,
     patchwork,
     utils,
+    RColorBrewer,
     rlang,
     shiny,
     vctrs

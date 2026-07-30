@@ -13,10 +13,10 @@ launch(data = NULL, ...)
 }
 \value{
 None. Launches a `shiny` applet for point-and-click based model
-diagnostics
+diagnostics.
 }
 \description{
-Launch a R Shiny-based applet for model diagnostics.
+Launches a R Shiny-based applet for linear model diagnostics.
 }
 \examples{
 \dontrun{
