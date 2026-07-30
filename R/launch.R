@@ -15,6 +15,11 @@
 
 launch <- function(data = NULL, ...) {
 
+  rlang::check_installed(
+    c("shiny", "bslib", "DT", "ggthemes", "htmltools", "palmerpenguins", "RColorBrewer"),
+    reason = "for `launch()`."
+  )
+
   shiny::addResourcePath("gglm-www", system.file("www", package = "gglm"))
 
   example_datasets <- list(
