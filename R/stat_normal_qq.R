@@ -2,9 +2,12 @@
 #'
 #' @description Normal QQ plot.
 #'
+#' @param mapping Additional aesthetic mappings to add to the layer, e.g.
+#' `aes(color = some_var)`.
+#' If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+#' value is ignored in favor of the default and a warning is issued.
 #' @param alpha Adjust transparency of points.
-#' @param ... Additional arguments to be passed to the `aes()` of `stat_qq()`.
-#' These arguments correspond to the aesthetics of the points on the plot.
+#' @param ... Additional arguments passed on to `geom_point()`.
 #'
 #' @return A `ggplot2` layer for plotting a Normal Q-Q plot.
 #' @examples
@@ -14,16 +17,21 @@
 #' @export
 #' @importFrom rlang .data
 
-stat_normal_qq <- function(alpha = 0.5,
+stat_normal_qq <- function(mapping = ggplot2::aes(),
+                           alpha = 0.5,
                            ...) {
+  mapping <- merge_required_aes(
+    ggplot2::aes(
+      x = stats::qnorm(stats::ppoints(base::length(.data$.resid)))[rank(.data$.resid / stats::sd(.data$.resid))],
+      y = .data$.resid / stats::sd(.data$.resid)
+    ),
+    mapping
+  )
+
   list(
     ggplot2::geom_qq_line(mapping = ggplot2::aes(sample = .data$.resid / stats::sd(.data$.resid)),
                           linetype = "dashed"),
-    ggplot2::geom_point(mapping = ggplot2::aes(
-      x = stats::qnorm(stats::ppoints(base::length(.data$.resid)))[rank(.data$.resid / stats::sd(.data$.resid))],
-      y = .data$.resid / stats::sd(.data$.resid),
-      ... = ...),
-                        alpha = alpha),
+    ggplot2::geom_point(mapping = mapping, alpha = alpha, ...),
     ggplot2::labs(title = "Normal Q-Q",
                   x = "Theoretical Quantiles",
                   y = "Standardized Residuals")

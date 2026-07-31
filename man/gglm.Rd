@@ -4,14 +4,17 @@
 \alias{gglm}
 \title{gglm}
 \usage{
-gglm(data, theme = ggplot2::theme_gray(), ...)
+gglm(data, mapping = ggplot2::aes(), theme = ggplot2::theme_gray(), ...)
 }
 \arguments{
 \item{data}{A model object.}
 
+\item{mapping}{Additional aesthetic mappings to add to each layer, e.g.
+`aes(color = some_var)`.}
+
 \item{theme}{The theme of the `ggplot`s to be produced.}
 
-\item{...}{Currently ignored. For extendability.}
+\item{...}{Additional arguments passed on to each `stat_*()` layer.}
 }
 \value{
 A `ggplot2` object for visual diagnostic of model validity.

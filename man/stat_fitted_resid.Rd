@@ -4,12 +4,17 @@
 \alias{stat_fitted_resid}
 \title{stat_fitted_resid}
 \usage{
-stat_fitted_resid(alpha = 0.5, ...)
+stat_fitted_resid(mapping = ggplot2::aes(), alpha = 0.5, ...)
 }
 \arguments{
+\item{mapping}{Additional aesthetic mappings to add to the layer, e.g.
+`aes(color = some_var)`.
+If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+value is ignored in favor of the default and a warning is issued.}
+
 \item{alpha}{Adjust transparency of points.}
 
-\item{...}{Additional arguments to be passed to the `aes()` in `geom_point()`.}
+\item{...}{Additional arguments passed on to `geom_point()`.}
 }
 \value{
 A `ggplot2` layer for plotting a fitted vs. residual scatter plot.

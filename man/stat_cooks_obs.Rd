@@ -4,10 +4,15 @@
 \alias{stat_cooks_obs}
 \title{stat_cooks_obs}
 \usage{
-stat_cooks_obs(...)
+stat_cooks_obs(mapping = ggplot2::aes(), ...)
 }
 \arguments{
-\item{...}{Currently ignored. For extendability.}
+\item{mapping}{Additional aesthetic mappings to add to the layer, e.g.
+`aes(fill = some_var)`.
+If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+value is ignored in favor of the default and a warning is issued.}
+
+\item{...}{Additional arguments passed on to `geom_col()`.}
 }
 \value{
 A `ggplot2` layer for plotting cook's distance by observation number.

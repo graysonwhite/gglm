@@ -141,6 +141,13 @@ launch <- function(data = NULL, ...) {
             choices = NULL,
             multiple = TRUE
           ),
+          shiny::selectInput(
+            "poly_vars",
+            "Polynomial variable(s):",
+            choices = NULL,
+            multiple = TRUE
+          ),
+          shiny::uiOutput("poly_degree_inputs"),
           shiny::actionButton("fit_model", "Fit model")
         )
       ),
@@ -219,6 +226,7 @@ launch <- function(data = NULL, ...) {
                         {
                           shiny::updateSelectInput(session, "resp_var", choices = character(0))
                           shiny::updateSelectInput(session, "aux_vars", choices = character(0))
+                          shiny::updateSelectInput(session, "poly_vars", choices = character(0))
                         },
                         priority = 10,
                         ignoreInit = TRUE)
@@ -252,23 +260,51 @@ launch <- function(data = NULL, ...) {
       } else {
         character(0)
       }
-      
+
       shiny::updateSelectInput(
         session,
         "interactions",
         choices = interaction_choices,
         selected = shiny::isolate(input$interactions)[shiny::isolate(input$interactions) %in% interaction_choices]
       )
+
+      shiny::updateSelectInput(
+        session,
+        "poly_vars",
+        choices = input$aux_vars,
+        selected = shiny::isolate(input$poly_vars)[shiny::isolate(input$poly_vars) %in% input$aux_vars]
+      )
     }, ignoreNULL = FALSE)
+
+    output$poly_degree_inputs <- shiny::renderUI({
+      shiny::req(input$poly_vars)
+
+      lapply(input$poly_vars, function(v) {
+        shiny::numericInput(
+          paste0("poly_degree_", v),
+          paste0("Degree for ", v, ":"),
+          value = 2,
+          min = 2,
+          max = 5,
+          step = 1
+        )
+      })
+    })
     
     mod <- shiny::eventReactive(input$fit_model, {
       shiny::req(input$resp_var, input$aux_vars)
-      
-      formula_terms <- c(input$aux_vars, input$interactions)
+
+      poly_terms <- vapply(input$poly_vars, function(v) {
+        degree <- input[[paste0("poly_degree_", v)]]
+        sprintf("poly(%s, %d, raw = TRUE)", v, degree)
+      }, character(1))
+
+      linear_terms <- setdiff(input$aux_vars, input$poly_vars)
+      formula_terms <- c(linear_terms, poly_terms, input$interactions)
       formula_str <- base::paste(input$resp_var,
                                  "~",
                                  base::paste(formula_terms, collapse = " + "))
-      
+
       list(
         fit = stats::lm(stats::as.formula(formula_str), data = active_data()),
         aux_vars = input$aux_vars
@@ -300,20 +336,22 @@ launch <- function(data = NULL, ...) {
                        base::nzchar(settings$color_var)) {
         rlang::sym(settings$color_var)
       }
-      
+      color_mapping <- if (!is.null(color_arg)) {
+        do.call(ggplot2::aes, stats::setNames(list(color_arg), "color"))
+      } else {
+        ggplot2::aes()
+      }
+
       if (settings$which_plot == "Quartet") {
         gglm_args <- list(data = aug_data,
+                          mapping = color_mapping,
                           alpha = settings$alpha,
                           theme = theme_obj)
-        if (!is.null(color_arg))
-          gglm_args$color <- color_arg
-        
+
         plot <- do.call(gglm::gglm, gglm_args)
       } else {
-        stat_args <- list(alpha = settings$alpha)
-        if (!is.null(color_arg))
-          stat_args$color <- color_arg
-        
+        stat_args <- list(mapping = color_mapping, alpha = settings$alpha)
+
         plot <- ggplot2::ggplot(aug_data) +
           do.call(stat_fn_map[[settings$which_plot]], stat_args) +
           theme_obj

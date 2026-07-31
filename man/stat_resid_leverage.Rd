@@ -5,6 +5,7 @@
 \title{stat_resid_leverage}
 \usage{
 stat_resid_leverage(
+  mapping = ggplot2::aes(),
   alpha = 0.5,
   method = "loess",
   se = FALSE,
@@ -13,6 +14,11 @@ stat_resid_leverage(
 )
 }
 \arguments{
+\item{mapping}{Additional aesthetic mappings to add to the layer, e.g.
+`aes(color = some_var)`.
+If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+value is ignored in favor of the default and a warning is issued.}
+
 \item{alpha}{Adjust transparency of points.}
 
 \item{method}{Method for fitting the line to the points.}
@@ -21,7 +27,7 @@ stat_resid_leverage(
 
 \item{linecolor}{Color of the line.}
 
-\item{...}{Additional arguments to be passed to the `aes()` in `geom_point()`.}
+\item{...}{Additional arguments passed on to `geom_point()`.}
 }
 \value{
 A `ggplot2` layer for plotting a fitted vs. residual scatter plot.

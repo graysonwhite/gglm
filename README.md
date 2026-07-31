@@ -75,10 +75,16 @@ library(lme4) # Load lme4 to fit the mixed model
 
 mixed_model <- lmer(mpg ~ wt + (1 | cyl), data = mtcars) # Fit the mixed model
 
-gglm(mixed_model) # Plot the four main diagnostic plots.
+gglm(mixed_model) # Plot the four main diagnostic plots
 ```
 
 ![](man/figures/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+gglm(mixed_model, mapping = aes(color = as.factor(cyl))) # And color by random effect levels
+```
+
+![](man/figures/unnamed-chunk-5-2.png)<!-- -->
 
 ### Example 2: Using the Grammar of Graphics with the `stat_*()` functions
 
