@@ -28,6 +28,8 @@ stat_resid_leverage <-
            se = FALSE,
            linecolor = "steelblue",
            ...) {
+    warn_on_deprecated_color(list(...), "stat_resid_leverage")
+
     mapping <- merge_required_aes(
       ggplot2::aes(x = .data$.hat, y = .data$.resid / stats::sd(.data$.resid)),
       mapping

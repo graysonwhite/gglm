@@ -22,7 +22,7 @@ stat_normal_qq <- function(mapping = ggplot2::aes(),
                            ...) {
   mapping <- merge_required_aes(
     ggplot2::aes(
-      x = stats::qnorm(stats::ppoints(base::length(.data$.resid)))[rank(.data$.resid / stats::sd(.data$.resid))],
+      x = qq_theoretical_quantiles(.data$.resid),
       y = .data$.resid / stats::sd(.data$.resid)
     ),
     mapping

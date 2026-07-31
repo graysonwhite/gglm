@@ -27,6 +27,8 @@ stat_cooks_leverage <- function(mapping = ggplot2::aes(),
                            linecolor = "steelblue",
                            se = FALSE,
                            ...){
+  warn_on_deprecated_color(list(...), "stat_cooks_leverage")
+
   mapping <- merge_required_aes(
     ggplot2::aes(x = .data$.hat, y = .data$.cooksd),
     mapping

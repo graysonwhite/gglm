@@ -28,6 +28,8 @@ stat_scale_location <- function(mapping = ggplot2::aes(),
                                 method = "loess",
                                 linecolor = "steelblue",
                                 ...) {
+  warn_on_deprecated_color(list(...), "stat_scale_location")
+
   mapping <- merge_required_aes(
     ggplot2::aes(x = .data$.fitted, y = sqrt(abs(.data$.resid / stats::sd(.data$.resid)))),
     mapping

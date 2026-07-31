@@ -16,6 +16,23 @@ merge_required_aes <- function(required, mapping) {
   utils::modifyList(mapping, required)
 }
 
+warn_on_deprecated_color <- function(dots, fn_name) {
+  if ("color" %in% names(dots)) {
+    warning(
+      "In `", fn_name, "()`, `color` no longer sets the trend line color; ",
+      "use `linecolor` instead. The `color` value you supplied has been ",
+      "passed on to `geom_point()` and will set the point color.",
+      call. = FALSE
+    )
+  }
+}
+
+qq_theoretical_quantiles <- function(resid) {
+  std_resid <- resid / stats::sd(resid)
+  theoretical <- stats::qnorm(stats::ppoints(base::length(std_resid)))
+  theoretical[order(order(std_resid))]
+}
+
 utils::globalVariables(c(
   ".",
   ".rownames",

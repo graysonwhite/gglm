@@ -20,22 +20,27 @@ gglm <- function(data,
                  theme = ggplot2::theme_gray(),
                  ...) {
   if (!any(class(data) %in% c("data.frame", "tbl_df", "tbl"))) {
+    orig_data <- data
     data <- tryCatch({
       broom::augment(data)
     },
     error = function(cond) {
       tryCatch({
-        ggplot2::fortify(data)
+        ggplot2::fortify(orig_data)
       },
       error = function(cond) {
-        message(
+        NULL
+      })
+    })
+
+    if (is.null(data)) {
+      message(
 "It looks like you supplied an object that isn't compatible with `gglm`.
 Note that for `gglm` to work, there must be an applicable method from `broom` or
 `broom.mixed` to `augment()` the data, or an applicable method from `ggplot2` to
 `fortify()` the data.")
-        data
-      })
-    })
+      return(invisible(NULL))
+    }
   }
 
   ggplot2::theme_set(theme)
