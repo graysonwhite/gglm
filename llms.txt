@@ -1,4 +1,4 @@
-# gglm ![](https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true)
+# gglm ![](https://github.com/graysonwhite/gglm/blob/master/figs/gglm.webp?raw=true)
 
 ## Overview
 
