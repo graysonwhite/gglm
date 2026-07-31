@@ -16,7 +16,8 @@
 launch <- function(data = NULL, ...) {
 
   rlang::check_installed(
-    c("shiny", "bslib", "DT", "ggthemes", "htmltools", "palmerpenguins", "RColorBrewer"),
+    c("shiny", "bslib", "DT", "ggthemes", "htmltools", "palmerpenguins",
+      "RColorBrewer", "fivethirtyeight"),
     reason = "for `launch()`."
   )
 
@@ -24,9 +25,7 @@ launch <- function(data = NULL, ...) {
 
   example_datasets <- list(
     "penguins" = palmerpenguins::penguins,
-    "candy" = utils::read.csv(
-      "https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"
-    ),
+    "candy" = fivethirtyeight::candy_rankings,
     "mtcars" = datasets::mtcars
   )
   

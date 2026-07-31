@@ -25,6 +25,7 @@ Imports:
 Suggests:
     bslib,
     DT,
+    fivethirtyeight,
     ggthemes,
     htmltools,
     lme4,
