@@ -6,7 +6,7 @@ status](https://www.r-pkg.org/badges/version/gglm)](https://cran.r-project.org/p
 [![R-CMD-check](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/graysonwhite/gglm/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.gif?raw=true" align="right" width=125 />
+# gglm <img src="https://github.com/graysonwhite/gglm/blob/master/figs/gglm.webp?raw=true" align="right" width=125 />
 
 ## Overview
 

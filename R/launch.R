@@ -88,7 +88,7 @@ launch <- function(data = NULL, ...) {
 
     bslib::navset_bar(
       title = htmltools::tags$span(
-        htmltools::tags$img(src = "gglm-www/gglm.gif", height = "40px", style = "margin-right: 8px;"),
+        htmltools::tags$img(src = "gglm-www/gglm.webp", height = "40px", style = "margin-right: 8px;"),
         "Linear Model Diagnostics"
       ),
       id = "main_nav",
