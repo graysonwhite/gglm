@@ -5,14 +5,21 @@
 ## Usage
 
 ``` r
-stat_cooks_obs(...)
+stat_cooks_obs(mapping = ggplot2::aes(), ...)
 ```
 
 ## Arguments
 
+- mapping:
+
+  Additional aesthetic mappings to add to the layer, e.g. \`aes(fill =
+  some_var)\`. If \`mapping\` includes a required aesthetic (e.g. \`x\`,
+  \`y\`), the supplied value is ignored in favor of the default and a
+  warning is issued.
+
 - ...:
 
-  Currently ignored. For extendability.
+  Additional arguments passed on to \`geom_col()\`.
 
 ## Value
 

@@ -6,6 +6,7 @@ Scale location diagnostic plot.
 
 ``` r
 stat_scale_location(
+  mapping = ggplot2::aes(),
   alpha = 0.5,
   na.rm = TRUE,
   se = FALSE,
@@ -16,6 +17,13 @@ stat_scale_location(
 ```
 
 ## Arguments
+
+- mapping:
+
+  Additional aesthetic mappings to add to the layer, e.g. \`aes(color =
+  some_var)\`. If \`mapping\` includes a required aesthetic (e.g. \`x\`,
+  \`y\`), the supplied value is ignored in favor of the default and a
+  warning is issued.
 
 - alpha:
 
@@ -39,8 +47,7 @@ stat_scale_location(
 
 - ...:
 
-  Additional arguments to be passed to the \`aes()\` in
-  \`geom_point()\`.
+  Additional arguments passed on to \`geom_point()\`.
 
 ## Value
 

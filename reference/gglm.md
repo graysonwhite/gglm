@@ -5,7 +5,7 @@ Provides four standard visual model diagnostic plots with \`ggplot2\`.
 ## Usage
 
 ``` r
-gglm(data, theme = ggplot2::theme_gray(), ...)
+gglm(data, mapping = ggplot2::aes(), theme = ggplot2::theme_gray(), ...)
 ```
 
 ## Arguments
@@ -14,13 +14,18 @@ gglm(data, theme = ggplot2::theme_gray(), ...)
 
   A model object.
 
+- mapping:
+
+  Additional aesthetic mappings to add to each layer, e.g. \`aes(color =
+  some_var)\`.
+
 - theme:
 
   The theme of the \`ggplot\`s to be produced.
 
 - ...:
 
-  Currently ignored. For extendability.
+  Additional arguments passed on to each \`stat\_\*()\` layer.
 
 ## Value
 

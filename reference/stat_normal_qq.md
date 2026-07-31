@@ -5,10 +5,17 @@ Normal QQ plot.
 ## Usage
 
 ``` r
-stat_normal_qq(alpha = 0.5, ...)
+stat_normal_qq(mapping = ggplot2::aes(), alpha = 0.5, ...)
 ```
 
 ## Arguments
+
+- mapping:
+
+  Additional aesthetic mappings to add to the layer, e.g. \`aes(color =
+  some_var)\`. If \`mapping\` includes a required aesthetic (e.g. \`x\`,
+  \`y\`), the supplied value is ignored in favor of the default and a
+  warning is issued.
 
 - alpha:
 
@@ -16,9 +23,7 @@ stat_normal_qq(alpha = 0.5, ...)
 
 - ...:
 
-  Additional arguments to be passed to the \`aes()\` of \`stat_qq()\`.
-  These arguments correspond to the aesthetics of the points on the
-  plot.
+  Additional arguments passed on to \`geom_point()\`.
 
 ## Value
 
