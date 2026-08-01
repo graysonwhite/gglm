@@ -4,15 +4,25 @@
 \alias{launch}
 \title{launch}
 \usage{
-launch(data = NULL, ...)
+launch(
+  data = NULL,
+  example_datasets = list(penguins = palmerpenguins::penguins, candy =
+    fivethirtyeight::candy_rankings, mtcars = datasets::mtcars),
+  ...
+)
 }
 \arguments{
-\item{data}{A `data.frame` to use in modeling.}
+\item{data}{A \code{data.frame} to use in modeling. Meant for one-off uses of 
+\code{launch()} with data in your working environment.}
+
+\item{example_datasets}{A named \code{list} of example datasets to use in 
+modeling. Meant for publicly hosting instances of \code{launch()} with a set 
+of preferred datasets.}
 
 \item{...}{Currently ignored. For extendability.}
 }
 \value{
-None. Launches a `shiny` applet for point-and-click based model
+None. Launches a \code{shiny} applet for point-and-click based model
 diagnostics.
 }
 \description{

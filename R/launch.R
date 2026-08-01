@@ -2,10 +2,14 @@
 #'
 #' @description Launches a R Shiny-based applet for linear model diagnostics. 
 #'
-#' @param data A `data.frame` to use in modeling.
+#' @param data A \code{data.frame} to use in modeling. Meant for one-off uses of 
+#' \code{launch()} with data in your working environment.
+#' @param example_datasets A named \code{list} of example datasets to use in 
+#' modeling. Meant for publicly hosting instances of \code{launch()} with a set 
+#' of preferred datasets. 
 #' @param ... Currently ignored. For extendability.
 #'
-#' @return None. Launches a `shiny` applet for point-and-click based model
+#' @return None. Launches a \code{shiny} applet for point-and-click based model
 #' diagnostics.
 #' @examples
 #' \dontrun{
@@ -13,7 +17,13 @@
 #' }
 #' @export
 
-launch <- function(data = NULL, ...) {
+launch <- function(data = NULL,
+                   example_datasets = list(
+                     "penguins" = palmerpenguins::penguins,
+                     "candy" = fivethirtyeight::candy_rankings,
+                     "mtcars" = datasets::mtcars
+                   ),
+                   ...) {
 
   rlang::check_installed(
     c("shiny", "bslib", "DT", "ggthemes", "htmltools", "palmerpenguins",
@@ -22,12 +32,6 @@ launch <- function(data = NULL, ...) {
   )
 
   shiny::addResourcePath("gglm-www", system.file("www", package = "gglm"))
-
-  example_datasets <- list(
-    "penguins" = palmerpenguins::penguins,
-    "candy" = fivethirtyeight::candy_rankings,
-    "mtcars" = datasets::mtcars
-  )
   
   theme_choices <- list(
     "Gray" = ggplot2::theme_gray,

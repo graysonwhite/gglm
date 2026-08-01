@@ -10,17 +10,18 @@ gglm(data, mapping = ggplot2::aes(), theme = ggplot2::theme_gray(), ...)
 \item{data}{A model object.}
 
 \item{mapping}{Additional aesthetic mappings to add to each layer, e.g.
-`aes(color = some_var)`.}
+\code{aes(color = some_var)}.}
 
-\item{theme}{The theme of the `ggplot`s to be produced.}
+\item{theme}{The theme of the \code{ggplot}s to be produced.}
 
-\item{...}{Additional arguments passed on to each `stat_*()` layer.}
+\item{...}{Additional arguments passed on to each \code{stat_*()} layer.}
 }
 \value{
-A `ggplot2` object for visual diagnostic of model validity.
+A \code{ggplot2} object for visual diagnostic of model validity.
 }
 \description{
-Provides four standard visual model diagnostic plots with `ggplot2`.
+Provides four standard visual model diagnostic plots with
+\code{ggplot2}.
 }
 \examples{
 data(mtcars)

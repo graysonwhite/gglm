@@ -10,18 +10,18 @@ list_model_classes(...)
 \item{...}{Currently ignored. For extendability.}
 }
 \value{
-A character vector containing the possible model classes that `gglm`
-works with.
+A character vector containing the possible model classes that 
+\code{gglm} works with.
 }
 \description{
-Returns the possible model classes that `gglm` works with.
+Returns the possible model classes that \code{gglm} works with.
 }
 \note{
 Note that these are not always the exact name of the class that that 
 can be used. This is due to how some methods are written in the packages
-`gglm` imports. For example, the model class "merMod" refers to a variety of
-model outputs from `lme4`, even when the outputted class is not called 
-"merMod".
+\code{gglm} imports. For example, the model class "merMod" refers to a 
+variety of model outputs from \code{lme4}, even when the outputted class is
+not called "merMod".
 }
 \examples{
 list_model_classes()

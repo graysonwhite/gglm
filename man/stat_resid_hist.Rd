@@ -8,16 +8,16 @@ stat_resid_hist(mapping = ggplot2::aes(), bins = 30, ...)
 }
 \arguments{
 \item{mapping}{Additional aesthetic mappings to add to the layer, e.g.
-`aes(fill = some_var)`.
-If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+\code{aes(fill = some_var)}.
+If \code{mapping} includes a required aesthetic (e.g. \code{x}, \code{y}), the supplied
 value is ignored in favor of the default and a warning is issued.}
 
 \item{bins}{Adjust the number of bins.}
 
-\item{...}{Additional arguments passed on to `geom_histogram()`.}
+\item{...}{Additional arguments passed on to \code{geom_histogram()}.}
 }
 \value{
-A `ggplot2` layer for plotting a histogram of residuals.
+A \code{ggplot2} layer for plotting a histogram of residuals.
 }
 \description{
 Visualize the distribution of the residuals of a model.

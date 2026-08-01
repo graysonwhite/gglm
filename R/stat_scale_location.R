@@ -3,17 +3,17 @@
 #' @description Scale location diagnostic plot.
 #'
 #' @param mapping Additional aesthetic mappings to add to the layer, e.g.
-#' `aes(color = some_var)`.
-#' If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+#' \code{aes(color = some_var)}.
+#' If \code{mapping} includes a required aesthetic (e.g. \code{x}, \code{y}), the supplied
 #' value is ignored in favor of the default and a warning is issued.
 #' @param alpha Adjust the transparency of points.
 #' @param na.rm Remove points with value NA?
 #' @param se Keep standard error bands around line?
 #' @param method Method for fitting the line to the points.
 #' @param linecolor Color of the line.
-#' @param ... Additional arguments passed on to `geom_point()`.
+#' @param ... Additional arguments passed on to \code{geom_point()}.
 #'
-#' @return A `ggplot2` layer for plotting the scale location diagnostic plot.
+#' @return A \code{ggplot2} layer for plotting the scale location diagnostic plot.
 #' @examples
 #' data(mtcars)
 #' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)

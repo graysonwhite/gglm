@@ -3,13 +3,13 @@
 #' @description Visualize the distribution of the residuals of a model.
 #'
 #' @param mapping Additional aesthetic mappings to add to the layer, e.g.
-#' `aes(fill = some_var)`.
-#' If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+#' \code{aes(fill = some_var)}.
+#' If \code{mapping} includes a required aesthetic (e.g. \code{x}, \code{y}), the supplied
 #' value is ignored in favor of the default and a warning is issued.
 #' @param bins Adjust the number of bins.
-#' @param ... Additional arguments passed on to `geom_histogram()`.
+#' @param ... Additional arguments passed on to \code{geom_histogram()}.
 #'
-#' @return A `ggplot2` layer for plotting a histogram of residuals.
+#' @return A \code{ggplot2} layer for plotting a histogram of residuals.
 #' @examples
 #' data(mtcars)
 #' model <- lm(mpg ~ cyl + disp + hp, data = mtcars)

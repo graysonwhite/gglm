@@ -1,14 +1,15 @@
 #' @title gglm
 #'
-#' @description Provides four standard visual model diagnostic plots with `ggplot2`.
+#' @description Provides four standard visual model diagnostic plots with
+#' \code{ggplot2}.
 #'
 #' @param data A model object.
 #' @param mapping Additional aesthetic mappings to add to each layer, e.g.
-#' `aes(color = some_var)`.
-#' @param theme The theme of the `ggplot`s to be produced.
-#' @param ... Additional arguments passed on to each `stat_*()` layer.
+#' \code{aes(color = some_var)}.
+#' @param theme The theme of the \code{ggplot}s to be produced.
+#' @param ... Additional arguments passed on to each \code{stat_*()} layer.
 #'
-#' @return A `ggplot2` object for visual diagnostic of model validity.
+#' @return A \code{ggplot2} object for visual diagnostic of model validity.
 #' @examples
 #' data(mtcars)
 #' m1 <- lm(mpg ~ cyl + disp + hp, data = mtcars)

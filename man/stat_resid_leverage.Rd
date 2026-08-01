@@ -15,8 +15,8 @@ stat_resid_leverage(
 }
 \arguments{
 \item{mapping}{Additional aesthetic mappings to add to the layer, e.g.
-`aes(color = some_var)`.
-If `mapping` includes a required aesthetic (e.g. `x`, `y`), the supplied
+\code{aes(color = some_var)}.
+If \code{mapping} includes a required aesthetic (e.g. \code{x}, \code{y}), the supplied
 value is ignored in favor of the default and a warning is issued.}
 
 \item{alpha}{Adjust transparency of points.}
@@ -27,10 +27,10 @@ value is ignored in favor of the default and a warning is issued.}
 
 \item{linecolor}{Color of the line.}
 
-\item{...}{Additional arguments passed on to `geom_point()`.}
+\item{...}{Additional arguments passed on to \code{geom_point()}.}
 }
 \value{
-A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
+A \code{ggplot2} layer for plotting a fitted vs. residual scatter plot.
 }
 \description{
 Residual vs. leverage plot.
