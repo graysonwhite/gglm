@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/graysonwhite/gglm/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/graysonwhite/gglm/blob/v1.1.0/DESCRIPTION)
 
 White G (2026). *gglm: Grammar of Graphics for Linear Model Diagnostic
 Plots*. R package version 1.1.0, <https://github.com/graysonwhite/gglm>.
