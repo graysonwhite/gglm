@@ -1,7 +1,7 @@
 Package: gglm
 Type: Package
 Title: Grammar of Graphics for Linear Model Diagnostic Plots
-Version: 1.0.5.9000
+Version: 1.1.0
 Authors@R:
     c(person(given = "Grayson",
              family = "White",
@@ -11,10 +11,10 @@ Authors@R:
 Description: Allows for easy creation of diagnostic plots for a variety of model objects using the Grammar of Graphics.  
   Provides functionality for both individual diagnostic plots and an array of four standard diagnostic plots.
 License: CC0
-Date: 2026-02-21
+Date: 2026-08-01
 Encoding: UTF-8
 Depends:
-  ggplot2
+    ggplot2
 Imports:
     broom,
     broom.mixed,
