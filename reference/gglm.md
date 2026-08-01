@@ -1,6 +1,6 @@
 # gglm
 
-Provides four standard visual model diagnostic plots with \`ggplot2\`.
+Provides four standard visual model diagnostic plots with `ggplot2`.
 
 ## Usage
 
@@ -16,20 +16,20 @@ gglm(data, mapping = ggplot2::aes(), theme = ggplot2::theme_gray(), ...)
 
 - mapping:
 
-  Additional aesthetic mappings to add to each layer, e.g. \`aes(color =
-  some_var)\`.
+  Additional aesthetic mappings to add to each layer, e.g.
+  `aes(color = some_var)`.
 
 - theme:
 
-  The theme of the \`ggplot\`s to be produced.
+  The theme of the `ggplot`s to be produced.
 
 - ...:
 
-  Additional arguments passed on to each \`stat\_\*()\` layer.
+  Additional arguments passed on to each `stat_*()` layer.
 
 ## Value
 
-A \`ggplot2\` object for visual diagnostic of model validity.
+A `ggplot2` object for visual diagnostic of model validity.
 
 ## Examples
 

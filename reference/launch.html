@@ -38,7 +38,12 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">launch</span><span class="op">(</span>data <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">launch</span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  example_datasets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>penguins <span class="op">=</span> <span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html" class="external-link">penguins</a></span>, candy <span class="op">=</span></span>
+<span>    <span class="fu">fivethirtyeight</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/fivethirtyeight/man/candy_rankings.html" class="external-link">candy_rankings</a></span>, mtcars <span class="op">=</span> <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/mtcars.html" class="external-link">mtcars</a></span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -46,7 +51,14 @@
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p>A `data.frame` to use in modeling.</p></dd>
+<dd><p>A <code>data.frame</code> to use in modeling. Meant for one-off uses of
+<code>launch()</code> with data in your working environment.</p></dd>
+
+
+<dt id="arg-example-datasets">example_datasets<a class="anchor" aria-label="anchor" href="#arg-example-datasets"></a></dt>
+<dd><p>A named <code>list</code> of example datasets to use in
+modeling. Meant for publicly hosting instances of <code>launch()</code> with a set
+of preferred datasets.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -55,7 +67,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>None. Launches a `shiny` applet for point-and-click based model
+    <p>None. Launches a <code>shiny</code> applet for point-and-click based model
 diagnostics.</p>
     </div>
 

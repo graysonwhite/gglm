@@ -1,6 +1,6 @@
 # stat_fitted_resid
 
-\`ggplot2\` layer for plotting a fitted vs. residual scatter plot.
+`ggplot2` layer for plotting a fitted vs. residual scatter plot.
 
 ## Usage
 
@@ -12,10 +12,10 @@ stat_fitted_resid(mapping = ggplot2::aes(), alpha = 0.5, ...)
 
 - mapping:
 
-  Additional aesthetic mappings to add to the layer, e.g. \`aes(color =
-  some_var)\`. If \`mapping\` includes a required aesthetic (e.g. \`x\`,
-  \`y\`), the supplied value is ignored in favor of the default and a
-  warning is issued.
+  Additional aesthetic mappings to add to the layer, e.g.
+  `aes(color = some_var)`. If `mapping` includes a required aesthetic
+  (e.g. `x`, `y`), the supplied value is ignored in favor of the default
+  and a warning is issued.
 
 - alpha:
 
@@ -23,11 +23,12 @@ stat_fitted_resid(mapping = ggplot2::aes(), alpha = 0.5, ...)
 
 - ...:
 
-  Additional arguments passed on to \`geom_point()\`.
+  Additional arguments passed on to
+  [`geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html).
 
 ## Value
 
-A \`ggplot2\` layer for plotting a fitted vs. residual scatter plot.
+A `ggplot2` layer for plotting a fitted vs. residual scatter plot.
 
 ## Examples
 

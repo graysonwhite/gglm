@@ -20,10 +20,10 @@ stat_scale_location(
 
 - mapping:
 
-  Additional aesthetic mappings to add to the layer, e.g. \`aes(color =
-  some_var)\`. If \`mapping\` includes a required aesthetic (e.g. \`x\`,
-  \`y\`), the supplied value is ignored in favor of the default and a
-  warning is issued.
+  Additional aesthetic mappings to add to the layer, e.g.
+  `aes(color = some_var)`. If `mapping` includes a required aesthetic
+  (e.g. `x`, `y`), the supplied value is ignored in favor of the default
+  and a warning is issued.
 
 - alpha:
 
@@ -47,11 +47,12 @@ stat_scale_location(
 
 - ...:
 
-  Additional arguments passed on to \`geom_point()\`.
+  Additional arguments passed on to
+  [`geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html).
 
 ## Value
 
-A \`ggplot2\` layer for plotting the scale location diagnostic plot.
+A `ggplot2` layer for plotting the scale location diagnostic plot.
 
 ## Examples
 

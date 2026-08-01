@@ -12,10 +12,10 @@ stat_resid_hist(mapping = ggplot2::aes(), bins = 30, ...)
 
 - mapping:
 
-  Additional aesthetic mappings to add to the layer, e.g. \`aes(fill =
-  some_var)\`. If \`mapping\` includes a required aesthetic (e.g. \`x\`,
-  \`y\`), the supplied value is ignored in favor of the default and a
-  warning is issued.
+  Additional aesthetic mappings to add to the layer, e.g.
+  `aes(fill = some_var)`. If `mapping` includes a required aesthetic
+  (e.g. `x`, `y`), the supplied value is ignored in favor of the default
+  and a warning is issued.
 
 - bins:
 
@@ -23,11 +23,12 @@ stat_resid_hist(mapping = ggplot2::aes(), bins = 30, ...)
 
 - ...:
 
-  Additional arguments passed on to \`geom_histogram()\`.
+  Additional arguments passed on to
+  [`geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html).
 
 ## Value
 
-A \`ggplot2\` layer for plotting a histogram of residuals.
+A `ggplot2` layer for plotting a histogram of residuals.
 
 ## Examples
 
