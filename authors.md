@@ -11,13 +11,12 @@ Source:
 [`DESCRIPTION`](https://github.com/graysonwhite/gglm/blob/master/DESCRIPTION)
 
 White G (2026). *gglm: Grammar of Graphics for Linear Model Diagnostic
-Plots*. R package version 1.0.5.9000,
-<https://github.com/graysonwhite/gglm>.
+Plots*. R package version 1.1.0, <https://github.com/graysonwhite/gglm>.
 
     @Manual{,
       title = {gglm: Grammar of Graphics for Linear Model Diagnostic Plots},
       author = {Grayson White},
       year = {2026},
-      note = {R package version 1.0.5.9000},
+      note = {R package version 1.1.0},
       url = {https://github.com/graysonwhite/gglm},
     }
